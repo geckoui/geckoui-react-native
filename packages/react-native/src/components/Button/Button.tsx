@@ -1,11 +1,10 @@
+import type React from 'react';
+import { remapProps } from 'nativewind';
 import { Pressable, Text } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import type { ButtonProps } from './Button.types';
 
-// Static maps so Tailwind's content scanner sees every class as a literal string.
-// react-native-css-interop does not support compound selectors (.foo.bar),
-// so variant+color is encoded as a single combined class (e.g. --filled-primary).
 const VARIANT_COLOR_CLS = {
   filled: { primary: 'GeckoButton--filled-primary' },
   outlined: { primary: 'GeckoButton--outlined-primary' },
@@ -36,25 +35,24 @@ const LABEL_SIZE_CLS = {
   xl: 'GeckoButton__label--xl',
 } as const;
 
-export const Button = ({
+const ButtonImpl = ({
   children,
   variant = 'filled',
   size = 'md',
   color = 'primary',
-  className,
-  labelClassName,
+  className: _className,
+  labelClassName: _labelClassName,
   style,
   labelStyle,
   disabled,
   ...rest
-}: ButtonProps) => {
+}: ButtonProps): React.ReactElement | null => {
   return (
     <Pressable
       className={twMerge(
         'GeckoButton',
         VARIANT_COLOR_CLS[variant][color],
         SIZE_CLS[size],
-        className,
       )}
       style={style}
       disabled={disabled}
@@ -69,7 +67,6 @@ export const Button = ({
             LABEL_VARIANT_COLOR_CLS[variant][color],
             LABEL_SIZE_CLS[size],
             disabled && 'GeckoButton__label--disabled',
-            labelClassName,
           )}
           style={labelStyle}
         >
@@ -81,5 +78,10 @@ export const Button = ({
     </Pressable>
   );
 };
+
+export const Button = remapProps(ButtonImpl, {
+  className: 'style',
+  labelClassName: 'labelStyle',
+});
 
 Button.displayName = 'Button';
