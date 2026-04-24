@@ -1,4 +1,9 @@
-import type { PressableProps, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import type {
+  PressableProps,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 
 export interface ButtonVariantMap {
   filled: unknown;
@@ -19,7 +24,8 @@ export interface ButtonSizeMap {
   xl: unknown;
 }
 
-export interface ButtonProps extends Omit<PressableProps, 'style' | 'children'> {
+export interface ButtonProps
+  extends Omit<PressableProps, 'style' | 'children'> {
   variant?: keyof ButtonVariantMap;
   color?: keyof ButtonColorMap;
   size?: keyof ButtonSizeMap;

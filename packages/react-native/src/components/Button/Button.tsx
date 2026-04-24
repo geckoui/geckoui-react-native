@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pressable, Text } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,10 +7,10 @@ import type { ButtonProps } from './Button.types';
 // react-native-css-interop does not support compound selectors (.foo.bar),
 // so variant+color is encoded as a single combined class (e.g. --filled-primary).
 const VARIANT_COLOR_CLS = {
-  filled:   { primary: 'GeckoButton--filled-primary' },
+  filled: { primary: 'GeckoButton--filled-primary' },
   outlined: { primary: 'GeckoButton--outlined-primary' },
-  ghost:    { primary: 'GeckoButton--ghost-primary' },
-  icon:     { primary: 'GeckoButton--icon-primary' },
+  ghost: { primary: 'GeckoButton--ghost-primary' },
+  icon: { primary: 'GeckoButton--icon-primary' },
 } as const;
 
 const SIZE_CLS = {
@@ -23,10 +22,10 @@ const SIZE_CLS = {
 } as const;
 
 const LABEL_VARIANT_COLOR_CLS = {
-  filled:   { primary: 'GeckoButton__label--filled-primary' },
+  filled: { primary: 'GeckoButton__label--filled-primary' },
   outlined: { primary: 'GeckoButton__label--outlined-primary' },
-  ghost:    { primary: 'GeckoButton__label--ghost-primary' },
-  icon:     { primary: 'GeckoButton__label--icon-primary' },
+  ghost: { primary: 'GeckoButton__label--ghost-primary' },
+  icon: { primary: 'GeckoButton__label--icon-primary' },
 } as const;
 
 const LABEL_SIZE_CLS = {

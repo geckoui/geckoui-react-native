@@ -12,7 +12,10 @@
     "./preset": "./preset.js"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
   },
   "devDependencies": {
     "@types/react": "^19.2.14",

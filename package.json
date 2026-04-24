@@ -1,12 +1,17 @@
 {
   "name": "geckoui-reactnative",
   "private": true,
+  "packageManager": "pnpm@10.29.2",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.13",
     "turbo": "^2.9.6",
     "typescript": "^6.0.3"
   }
