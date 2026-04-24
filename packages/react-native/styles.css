@@ -1,135 +1,51 @@
-/* GeckoUI React Native — Design Tokens & Component Styles */
-
-/* ── Design tokens ──────────────────────────────────────── */
+@import "./src/components/Button/Button.css";
 
 :root {
-  --color-primary-50:  #EDEFFF;
-  --color-primary-100: #D5D9FF;
-  --color-primary-200: #B0B5FF;
-  --color-primary-300: #8A8FFF;
-  --color-primary-400: #7171ED;
-  --color-primary-500: #6363DC;
-  --color-primary-600: #5B5BD6;
-  --color-primary-700: #4747C2;
-  --color-primary-800: #3636A0;
+  --color-primary-50: #edefff;
+  --color-primary-100: #d5d9ff;
+  --color-primary-200: #b0b5ff;
+  --color-primary-300: #8a8fff;
+  --color-primary-400: #7171ed;
+  --color-primary-500: #6363dc;
+  --color-primary-600: #5b5bd6;
+  --color-primary-700: #4747c2;
+  --color-primary-800: #3636a0;
   --color-primary-900: #272778;
   --color-primary-950: #181858;
 
-  --color-surface-primary:   #FFFFFF;
-  --color-surface-secondary: #FAFAFA;
-  --color-surface-hover:     #F5F5F5;
-  --color-surface-disabled:  #F0F0F0;
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #fafafa;
+  --color-surface-hover: #f5f5f5;
+  --color-surface-disabled: #f0f0f0;
 
-  --color-text-primary:    #1A1A1A;
-  --color-text-secondary:  #525252;
-  --color-text-tertiary:   #737373;
-  --color-text-disabled:   #A3A3A3;
-  --color-text-on-primary: #FFFFFF;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #525252;
+  --color-text-tertiary: #737373;
+  --color-text-disabled: #a3a3a3;
+  --color-text-on-primary: #ffffff;
 
-  --color-border-primary:   #E0E0E0;
-  --color-border-secondary: #D4D4D4;
-  --color-border-focus:     #8A8FFF;
-  --color-border-disabled:  #EBEBEB;
+  --color-border-primary: #e0e0e0;
+  --color-border-secondary: #d4d4d4;
+  --color-border-focus: #8a8fff;
+  --color-border-disabled: #ebebeb;
 }
 
 .dark {
-  --color-primary-600: #7979E8;
-  --color-primary-700: #6868DA;
+  --color-primary-600: #7979e8;
+  --color-primary-700: #6868da;
 
-  --color-surface-primary:   #1A1A1A;
+  --color-surface-primary: #1a1a1a;
   --color-surface-secondary: #242424;
-  --color-surface-hover:     #2E2E2E;
-  --color-surface-disabled:  #2E2E2E;
+  --color-surface-hover: #2e2e2e;
+  --color-surface-disabled: #2e2e2e;
 
-  --color-text-primary:    #F8F8F8;
-  --color-text-secondary:  #D4D4D4;
-  --color-text-tertiary:   #A3A3A3;
-  --color-text-disabled:   #525252;
-  --color-text-on-primary: #FFFFFF;
+  --color-text-primary: #f8f8f8;
+  --color-text-secondary: #d4d4d4;
+  --color-text-tertiary: #a3a3a3;
+  --color-text-disabled: #525252;
+  --color-text-on-primary: #ffffff;
 
-  --color-border-primary:   #3D3D3D;
-  --color-border-secondary: #3D3D3D;
-  --color-border-disabled:  #2A2A2A;
-}
-
-/* ── Component styles ───────────────────────────────────── */
-
-@layer components {
-
-  /* ━━ GeckoButton ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-  .GeckoButton {
-    @apply flex-row items-center justify-center gap-1.5 rounded-md overflow-hidden;
-  }
-
-  /* Sizes */
-  .GeckoButton--xs { @apply h-[26px] px-2; }
-  .GeckoButton--sm { @apply h-8 px-3; }
-  .GeckoButton--md { @apply h-[38px] px-3; }
-  .GeckoButton--lg { @apply h-11 px-3.5; }
-  .GeckoButton--xl { @apply h-[50px] px-4; }
-
-  /* filled + primary */
-  .GeckoButton--filled-primary {
-    @apply bg-primary-600 border border-primary-600;
-  }
-  .GeckoButton--filled-primary:disabled {
-    @apply opacity-50;
-  }
-
-  /* outlined + primary */
-  .GeckoButton--outlined-primary {
-    @apply border border-border-secondary bg-transparent;
-  }
-  .GeckoButton--outlined-primary:disabled {
-    @apply bg-surface-hover border-border-disabled;
-  }
-
-  /* ghost + primary */
-  .GeckoButton--ghost-primary {
-    @apply border border-transparent bg-transparent;
-  }
-
-  /* icon — fixed 32×32, ignores size modifier */
-  .GeckoButton--icon-primary {
-    @apply border border-transparent bg-transparent w-8 h-8 px-0;
-  }
-
-  /* ━━ GeckoButton__label ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-  .GeckoButton__label {
-    @apply leading-none;
-  }
-
-  /* Label sizes */
-  .GeckoButton__label--xs { @apply text-xs; }
-  .GeckoButton__label--sm { @apply text-xs; }
-  .GeckoButton__label--md { @apply text-sm; }
-  .GeckoButton__label--lg { @apply text-sm; }
-  .GeckoButton__label--xl { @apply text-sm font-semibold; }
-
-  /* filled label */
-  .GeckoButton__label--filled-primary {
-    @apply text-text-on-primary;
-  }
-
-  /* outlined label */
-  .GeckoButton__label--outlined-primary {
-    @apply text-text-primary;
-  }
-
-  /* ghost label */
-  .GeckoButton__label--ghost-primary {
-    @apply text-primary-600 font-semibold;
-  }
-
-  /* icon label */
-  .GeckoButton__label--icon-primary {
-    @apply text-text-tertiary;
-  }
-
-  /* disabled label — must come last to win over variant colors */
-  .GeckoButton__label--disabled {
-    @apply text-text-disabled font-normal;
-  }
+  --color-border-primary: #3d3d3d;
+  --color-border-secondary: #3d3d3d;
+  --color-border-disabled: #2a2a2a;
 }

@@ -1,0 +1,106 @@
+@layer components {
+  .GeckoButton {
+    @apply flex-row items-center justify-center gap-1.5 rounded-md overflow-hidden;
+  }
+
+  /* Sizes */
+  .GeckoButton--xs {
+    @apply h-[26px] px-2;
+  }
+
+  .GeckoButton--sm {
+    @apply h-8 px-3;
+  }
+
+  .GeckoButton--md {
+    @apply h-[38px] px-3;
+  }
+
+  .GeckoButton--lg {
+    @apply h-11 px-3.5;
+  }
+
+  .GeckoButton--xl {
+    @apply h-[50px] px-4;
+  }
+
+  /* filled + primary */
+  .GeckoButton--filled-primary {
+    @apply bg-primary-600 border border-primary-600;
+  }
+
+  .GeckoButton--filled-primary:disabled {
+    @apply opacity-50;
+  }
+
+  /* outlined + primary */
+  .GeckoButton--outlined-primary {
+    @apply border border-border-secondary bg-transparent;
+  }
+
+  .GeckoButton--outlined-primary:disabled {
+    @apply bg-surface-hover border-border-disabled;
+  }
+
+  /* ghost + primary */
+  .GeckoButton--ghost-primary {
+    @apply border border-transparent bg-transparent;
+  }
+
+  /* icon — fixed 32×32, ignores size modifier */
+  .GeckoButton--icon-primary {
+    @apply border border-transparent bg-transparent w-8 h-8 px-0;
+  }
+
+  /* ━━ GeckoButton__label ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  .GeckoButton__label {
+    @apply leading-none;
+  }
+
+  /* Label sizes */
+  .GeckoButton__label--xs {
+    @apply text-xs;
+  }
+
+  .GeckoButton__label--sm {
+    @apply text-xs;
+  }
+
+  .GeckoButton__label--md {
+    @apply text-sm;
+  }
+
+  .GeckoButton__label--lg {
+    @apply text-sm;
+  }
+
+  .GeckoButton__label--xl {
+    @apply text-sm font-semibold;
+  }
+
+  /* filled label */
+  .GeckoButton__label--filled-primary {
+    @apply text-text-on-primary;
+  }
+
+  /* outlined label */
+  .GeckoButton__label--outlined-primary {
+    @apply text-text-primary;
+  }
+
+  /* ghost label */
+  .GeckoButton__label--ghost-primary {
+    @apply text-primary-600 font-semibold;
+  }
+
+  /* icon label */
+  .GeckoButton__label--icon-primary {
+    @apply text-text-tertiary;
+  }
+
+  /* disabled label — must come last to win over variant colors */
+  .GeckoButton__label--disabled {
+    @apply text-text-disabled font-normal;
+  }
+}

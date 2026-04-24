@@ -12,6 +12,7 @@
     "./preset": "./preset.js"
   },
   "scripts": {
+    "dev": "tsc --noEmit --watch",
     "typecheck": "tsc --noEmit",
     "lint": "biome lint .",
     "format": "biome format --write .",
