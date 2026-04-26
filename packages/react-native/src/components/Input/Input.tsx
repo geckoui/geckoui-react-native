@@ -1,10 +1,10 @@
-import type React from "react";
-import { useState } from "react";
-import { remapProps } from "nativewind";
-import { TextInput, View } from "react-native";
-import { twMerge } from "tailwind-merge";
+import type React from 'react';
+import { useState } from 'react';
+import { remapProps } from 'nativewind';
+import { TextInput, View } from 'react-native';
+import { twMerge } from 'tailwind-merge';
 
-import type { InputProps } from "./Input.types";
+import type { InputProps } from './Input.types';
 
 type InputImplProps = InputProps;
 
@@ -26,10 +26,10 @@ const InputImpl = ({
   return (
     <View
       className={twMerge(
-        "GeckoInput",
-        disabled && "GeckoInput--disabled",
-        focused && !disabled && "GeckoInput--focused",
-        className
+        'GeckoInput',
+        disabled && 'GeckoInput--disabled',
+        focused && !disabled && 'GeckoInput--focused',
+        className,
       )}
       style={style}
     >
@@ -54,7 +54,7 @@ const InputImpl = ({
 };
 
 export const Input = remapProps(InputImpl, {
-  inputClassName: "inputStyle",
+  inputClassName: 'inputStyle',
 });
 
-Input.displayName = "Input";
+Input.displayName = 'Input';

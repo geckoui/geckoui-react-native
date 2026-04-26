@@ -3,9 +3,9 @@ import type {
   TextInputProps,
   TextStyle,
   ViewStyle,
-} from "react-native";
+} from 'react-native';
 
-export interface InputProps extends Omit<TextInputProps, "style"> {
+export interface InputProps extends Omit<TextInputProps, 'style'> {
   /** Rendered before the input. */
   prefix?: React.ReactNode;
 

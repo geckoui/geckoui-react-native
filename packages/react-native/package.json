@@ -7,8 +7,10 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "source": "./src/index.ts",
+  "react-native": "./dist/native/index.mjs",
   "exports": {
     ".": {
+      "react-native": "./dist/native/index.mjs",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
@@ -18,7 +20,6 @@
   },
   "files": [
     "dist",
-    "src",
     "styles.css",
     "preset.js"
   ],
@@ -37,6 +38,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
     "tailwind-merge": "^3.5.0"
   },
   "peerDependencies": {
