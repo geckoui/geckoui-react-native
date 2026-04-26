@@ -1,0 +1,5 @@
+@layer components {
+  .GeckoInputError {
+    @apply text-sm text-red-600;
+  }
+}
