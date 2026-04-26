@@ -7,10 +7,10 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "source": "./src/index.ts",
-  "react-native": "./dist/native/index.mjs",
+  "react-native": "./src/index.ts",
   "exports": {
     ".": {
-      "react-native": "./dist/native/index.mjs",
+      "react-native": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
@@ -20,11 +20,11 @@
   },
   "files": [
     "dist",
+    "src",
     "styles.css",
     "preset.js"
   ],
   "scripts": {
-    "dev": "tsup --watch",
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "lint": "biome lint .",
