@@ -8,6 +8,11 @@ export type {
   ButtonVariantMap,
 } from './components/Button';
 export { Checkbox } from './components/Checkbox';
+export { CounterInput } from './components/CounterInput';
+export type {
+  CounterInputProps,
+  CounterInputSizeMap,
+} from './components/CounterInput';
 export type { CheckboxProps } from './components/Checkbox';
 export { Input } from './components/Input';
 export type { InputProps } from './components/Input';
