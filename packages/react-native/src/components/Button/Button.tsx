@@ -20,14 +20,14 @@ const SIZE_CLS = {
   xl: 'GeckoButton--xl',
 } as const;
 
-const LABEL_VARIANT_COLOR_CLS = {
+export const LABEL_VARIANT_COLOR_CLS = {
   filled: { primary: 'GeckoButton__label--filled-primary' },
   outlined: { primary: 'GeckoButton__label--outlined-primary' },
   ghost: { primary: 'GeckoButton__label--ghost-primary' },
   icon: { primary: 'GeckoButton__label--icon-primary' },
 } as const;
 
-const LABEL_SIZE_CLS = {
+export const LABEL_SIZE_CLS = {
   xs: 'GeckoButton__label--xs',
   sm: 'GeckoButton__label--sm',
   md: 'GeckoButton__label--md',
