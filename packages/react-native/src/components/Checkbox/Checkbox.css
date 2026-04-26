@@ -1,0 +1,21 @@
+@layer components {
+  .GeckoCheckbox {
+    @apply h-5 w-5 items-center justify-center rounded border border-border-primary bg-transparent;
+  }
+
+  .GeckoCheckbox--checked {
+    @apply bg-primary-600 border-primary-600;
+  }
+
+  .GeckoCheckbox--disabled {
+    @apply opacity-50;
+  }
+
+  .GeckoCheckbox__check {
+    @apply text-text-on-primary text-sm font-bold leading-none;
+  }
+
+  .GeckoCheckbox__dash {
+    @apply h-0.5 w-2.5 rounded-sm bg-text-on-primary;
+  }
+}
