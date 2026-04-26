@@ -1,9 +1,10 @@
 import type React from 'react';
 import { cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 import { Button, labelCva } from '../Button/Button';
+import { DynamicComponentRenderer } from '../DynamicComponentRenderer';
 import { Spinner } from '../Spinner';
 import type { LoadingButtonProps } from './LoadingButton.types';
 
@@ -63,8 +64,6 @@ export const LoadingButton = ({
     );
   }
 
-  const labelText =
-    loadingText ?? (typeof children === 'string' ? children : undefined);
   const spinner = (
     <Spinner
       size="small"
@@ -76,13 +75,10 @@ export const LoadingButton = ({
     <Button variant={variant} size={size} color={color} disabled {...rest}>
       <View className="flex-row items-center gap-1.5">
         {spinnerPosition === 'start' ? spinner : null}
-        {labelText != null ? (
-          <Text className={labelCva({ variant, size, color })}>
-            {labelText}
-          </Text>
-        ) : typeof children !== 'string' ? (
-          children
-        ) : null}
+        <DynamicComponentRenderer
+          component={loadingText ?? children}
+          className={labelCva({ variant, size, color })}
+        />
         {spinnerPosition === 'end' ? spinner : null}
       </View>
     </Button>

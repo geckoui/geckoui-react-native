@@ -1,9 +1,9 @@
 import type React from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
-import { Pressable, Text } from 'react-native';
-import { twMerge } from 'tailwind-merge';
+import { Pressable } from 'react-native';
 
+import { DynamicComponentRenderer } from '../DynamicComponentRenderer';
 import type { ButtonProps } from './Button.types';
 
 const buttonCva = cva('GeckoButton', {
@@ -106,31 +106,22 @@ const ButtonImpl = ({
   labelStyle,
   disabled,
   ...rest
-}: ButtonProps): React.ReactElement | null => {
-  return (
-    <Pressable
-      className={buttonCva({ variant, size, color })}
-      style={style}
-      disabled={disabled}
-      accessibilityRole="button"
-      accessibilityState={{ disabled: !!disabled }}
-      {...rest}
-    >
-      {typeof children === 'string' ? (
-        <Text
-          className={twMerge(
-            labelCva({ variant, size, color, disabled: !!disabled }),
-          )}
-          style={labelStyle}
-        >
-          {children}
-        </Text>
-      ) : (
-        children
-      )}
-    </Pressable>
-  );
-};
+}: ButtonProps): React.ReactElement | null => (
+  <Pressable
+    className={buttonCva({ variant, size, color })}
+    style={style}
+    disabled={disabled}
+    accessibilityRole="button"
+    accessibilityState={{ disabled: !!disabled }}
+    {...rest}
+  >
+    <DynamicComponentRenderer
+      component={children}
+      className={labelCva({ variant, size, color, disabled: !!disabled })}
+      style={labelStyle}
+    />
+  </Pressable>
+);
 
 export const Button = remapProps(ButtonImpl, {
   className: 'style',

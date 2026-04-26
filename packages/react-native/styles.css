@@ -1,4 +1,14 @@
+@import "./src/components/Alert/Alert.css";
 @import "./src/components/Button/Button.css";
+@import "./src/components/Checkbox/Checkbox.css";
+@import "./src/components/Input/Input.css";
+@import "./src/components/InputError/InputError.css";
+@import "./src/components/Label/Label.css";
+@import "./src/components/Radio/Radio.css";
+@import "./src/components/Spinner/Spinner.css";
+@import "./src/components/LoadingButton/LoadingButton.css";
+@import "./src/components/Switch/Switch.css";
+@import "./src/components/Textarea/Textarea.css";
 
 :root {
   --color-primary-50: #edefff;

@@ -1,0 +1,53 @@
+@layer components {
+  .GeckoAlert {
+    @apply rounded-lg border border-border-primary bg-surface-primary px-4 py-3 gap-0.5;
+  }
+
+  .GeckoAlert--error { color: #ef4444; }
+  .GeckoAlert--warning { color: #f97316; }
+  .GeckoAlert--info { color: #3b82f6; }
+  .GeckoAlert--success { color: #22c55e; }
+  .GeckoAlert--default { color: var(--color-text-primary); }
+
+  .GeckoAlert__body {
+    @apply flex-row items-center gap-3;
+  }
+
+  .GeckoAlert__icon {
+    @apply h-4 w-4 rounded-full items-center justify-center;
+  }
+
+  .GeckoAlert__icon--error { @apply bg-red-500; }
+  .GeckoAlert__icon--warning { @apply bg-orange-500; }
+  .GeckoAlert__icon--info { @apply bg-blue-500; }
+  .GeckoAlert__icon--success { @apply bg-green-500; }
+  .GeckoAlert__icon--default { @apply bg-text-primary; }
+
+  .GeckoAlert__icon-glyph {
+    @apply text-[10px] font-bold text-text-on-primary leading-none;
+  }
+
+  .GeckoAlert__title-wrap {
+    @apply flex-1;
+  }
+
+  .GeckoAlert__title {
+    @apply text-sm;
+  }
+
+  .GeckoAlert__remove {
+    @apply ml-auto h-5 w-5 items-center justify-center;
+  }
+
+  .GeckoAlert__remove-glyph {
+    @apply text-text-tertiary text-base leading-none;
+  }
+
+  .GeckoAlert__description {
+    @apply pl-7;
+  }
+
+  .GeckoAlert__description-text {
+    @apply text-xs text-text-secondary;
+  }
+}
