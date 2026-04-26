@@ -13,10 +13,26 @@ const spinnerCva = cva('', {
     color: { primary: '' },
   },
   compoundVariants: [
-    { variant: 'filled', color: 'primary', class: 'text-text-on-primary' },
-    { variant: 'outlined', color: 'primary', class: 'text-text-primary' },
-    { variant: 'ghost', color: 'primary', class: 'text-primary-600' },
-    { variant: 'icon', color: 'primary', class: 'text-text-tertiary' },
+    {
+      variant: 'filled',
+      color: 'primary',
+      class: 'GeckoLoadingButton__spinner--filled-primary',
+    },
+    {
+      variant: 'outlined',
+      color: 'primary',
+      class: 'GeckoLoadingButton__spinner--outlined-primary',
+    },
+    {
+      variant: 'ghost',
+      color: 'primary',
+      class: 'GeckoLoadingButton__spinner--ghost-primary',
+    },
+    {
+      variant: 'icon',
+      color: 'primary',
+      class: 'GeckoLoadingButton__spinner--icon-primary',
+    },
   ],
   defaultVariants: { variant: 'filled', color: 'primary' },
 });

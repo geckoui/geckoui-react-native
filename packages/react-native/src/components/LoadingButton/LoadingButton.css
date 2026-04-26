@@ -1,0 +1,17 @@
+@layer components {
+  .GeckoLoadingButton__spinner--filled-primary {
+    @apply text-text-on-primary;
+  }
+
+  .GeckoLoadingButton__spinner--outlined-primary {
+    @apply text-text-primary;
+  }
+
+  .GeckoLoadingButton__spinner--ghost-primary {
+    @apply text-primary-600;
+  }
+
+  .GeckoLoadingButton__spinner--icon-primary {
+    @apply text-text-tertiary;
+  }
+}
