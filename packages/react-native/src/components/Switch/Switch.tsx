@@ -1,7 +1,8 @@
 import type React from 'react';
+import { useEffect, useRef } from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
-import { Pressable, View } from 'react-native';
+import { Animated, Pressable } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import type { SwitchProps } from './Switch.types';
@@ -30,12 +31,8 @@ const thumbCva = cva('GeckoSwitch__thumb', {
       sm: 'GeckoSwitch__thumb--sm',
       md: 'GeckoSwitch__thumb--md',
     },
-    on: {
-      true: 'GeckoSwitch__thumb--on',
-      false: '',
-    },
   },
-  defaultVariants: { size: 'md', on: false },
+  defaultVariants: { size: 'md' },
 });
 
 const SwitchImpl = ({
@@ -48,22 +45,51 @@ const SwitchImpl = ({
   style,
   thumbStyle,
   ...rest
-}: SwitchProps): React.ReactElement => (
-  <Pressable
-    accessibilityRole="switch"
-    accessibilityState={{ checked: value, disabled: !!disabled }}
-    disabled={disabled}
-    onPress={() => onChange?.(!value)}
-    className={twMerge(
-      trackCva({ size, on: value, disabled: !!disabled }),
-      className,
-    )}
-    style={style}
-    {...rest}
-  >
-    <View className={thumbCva({ size, on: value })} style={thumbStyle} />
-  </Pressable>
-);
+}: SwitchProps): React.ReactElement => {
+  const translateX = useRef(new Animated.Value(0)).current;
+  const travel = useRef(0);
+  const ready = useRef(false);
+
+  useEffect(() => {
+    if (!ready.current) return;
+    Animated.timing(translateX, {
+      toValue: value ? travel.current : 0,
+      duration: 150,
+      useNativeDriver: true,
+    }).start();
+  }, [value]);
+
+  return (
+    <Pressable
+      accessibilityRole="switch"
+      accessibilityState={{ checked: value, disabled: !!disabled }}
+      disabled={disabled}
+      onPress={() => onChange?.(!value)}
+      className={twMerge(
+        trackCva({ size, on: value, disabled: !!disabled }),
+        className,
+      )}
+      style={style}
+      onLayout={(e) => {
+        const trackW = e.nativeEvent.layout.width;
+        travel.current = trackW;
+      }}
+      {...rest}
+    >
+      <Animated.View
+        className={thumbCva({ size })}
+        style={[{ transform: [{ translateX }] }, thumbStyle]}
+        onLayout={(e) => {
+          if (ready.current) return;
+          const thumbW = e.nativeEvent.layout.width;
+          travel.current = travel.current - thumbW - 4;
+          translateX.setValue(value ? travel.current : 0);
+          ready.current = true;
+        }}
+      />
+    </Pressable>
+  );
+};
 
 export const Switch = remapProps(SwitchImpl, {
   thumbClassName: 'thumbStyle',

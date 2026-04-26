@@ -31,7 +31,4 @@
     @apply h-5 w-5;
   }
 
-  .GeckoSwitch__thumb--on {
-    @apply ml-auto;
-  }
 }
