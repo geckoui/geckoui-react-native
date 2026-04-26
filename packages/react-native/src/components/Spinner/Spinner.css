@@ -1,0 +1,5 @@
+@layer components {
+  .GeckoSpinner {
+    @apply text-primary-600;
+  }
+}

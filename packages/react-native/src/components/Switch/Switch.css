@@ -1,0 +1,37 @@
+@layer components {
+  .GeckoSwitch {
+    @apply flex-row items-center rounded-full bg-surface-hover justify-start px-0.5;
+  }
+
+  .GeckoSwitch--sm {
+    @apply h-4 w-7;
+  }
+
+  .GeckoSwitch--md {
+    @apply h-6 w-11;
+  }
+
+  .GeckoSwitch--on {
+    @apply bg-primary-600;
+  }
+
+  .GeckoSwitch--disabled {
+    @apply opacity-50;
+  }
+
+  .GeckoSwitch__thumb {
+    @apply bg-surface-primary rounded-full;
+  }
+
+  .GeckoSwitch__thumb--sm {
+    @apply h-3 w-3;
+  }
+
+  .GeckoSwitch__thumb--md {
+    @apply h-5 w-5;
+  }
+
+  .GeckoSwitch__thumb--on {
+    @apply ml-auto;
+  }
+}
