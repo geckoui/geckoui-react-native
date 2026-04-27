@@ -1,0 +1,26 @@
+@layer components {
+  .GeckoOTPInput {
+    @apply flex-row gap-2 justify-center;
+  }
+
+  .GeckoOTPInput--disabled {
+    @apply opacity-50;
+  }
+
+  .GeckoOTPInput__cell {
+    @apply h-14 items-center justify-center aspect-square;
+  }
+
+  .GeckoOTPInput__input {
+    @apply w-full h-full rounded-lg border border-border-secondary bg-surface-primary text-center text-text-primary p-0;
+    font-size: 16px;
+  }
+
+  .GeckoOTPInput__input--focused {
+    @apply border-primary-300;
+  }
+
+  .GeckoOTPInput__input--disabled {
+    @apply bg-surface-disabled text-text-disabled;
+  }
+}
