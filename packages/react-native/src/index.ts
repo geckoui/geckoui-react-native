@@ -53,3 +53,13 @@ export type {
 } from './components/Calendar';
 export { Textarea } from './components/Textarea';
 export type { TextareaProps } from './components/Textarea';
+export { Dialog, DialogHost } from './components/Dialog';
+export type { DialogContentProps, DialogOptions } from './components/Dialog';
+export { ConfirmDialog } from './components/ConfirmDialog';
+export type {
+  ConfirmDialogOptions,
+  ConfirmDialogContentProps,
+} from './components/ConfirmDialog';
+export { Drawer, DrawerHost } from './components/Drawer';
+export type { DrawerProps, DrawerPlacementMap } from './components/Drawer';
+export { GeckoUIPortal } from './components/GeckoUIPortal';
