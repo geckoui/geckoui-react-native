@@ -28,5 +28,28 @@ export { Spinner } from './components/Spinner';
 export type { SpinnerProps } from './components/Spinner';
 export { Switch } from './components/Switch';
 export type { SwitchProps, SwitchSizeMap } from './components/Switch';
+export { OTPInput } from './components/OTPInput';
+export type { OTPInputProps } from './components/OTPInput';
+export { Pagination } from './components/Pagination';
+export type { PaginationProps } from './components/Pagination';
+export {
+  Calendar,
+  CalendarDayPicker,
+  CalendarHeader,
+  CalendarMonthPicker,
+  CalendarYearPicker,
+} from './components/Calendar';
+export type {
+  CalendarProps,
+  CalendarRef,
+  CalendarSingleModeProps,
+  CalendarRangeModeProps,
+  DateRange,
+  DayCellRenderProps,
+  CalendarHeaderProps,
+  MonthPickerProps,
+  CalendarYearPickerProps,
+  CalendarDayPickerProps,
+} from './components/Calendar';
 export { Textarea } from './components/Textarea';
 export type { TextareaProps } from './components/Textarea';

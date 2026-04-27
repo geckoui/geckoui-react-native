@@ -10,6 +10,9 @@
 @import "./src/components/LoadingButton/LoadingButton.css";
 @import "./src/components/Switch/Switch.css";
 @import "./src/components/Textarea/Textarea.css";
+@import "./src/components/OTPInput/OTPInput.css";
+@import "./src/components/Pagination/Pagination.css";
+@import "./src/components/Calendar/Calendar.css";
 
 :root {
   --color-primary-50: #edefff;
