@@ -1,119 +1,119 @@
 @layer components {
-  .GeckoCalendar {
+  .GeckoUICalendar {
     @apply border border-border-primary rounded-md px-3 py-4;
     width: 320px;
   }
 
-  .GeckoCalendar__dual {
+  .GeckoUICalendar__dual {
     @apply flex-col gap-4;
   }
 
-  .GeckoCalendar__header {
+  .GeckoUICalendar__header {
     @apply flex-row items-center justify-between gap-1 pb-4;
   }
 
-  .GeckoCalendar__header__title {
+  .GeckoUICalendar__header__title {
     @apply flex-1 items-center justify-center rounded-md px-3 py-2.5;
   }
 
-  .GeckoCalendar__header__title--clickable {
+  .GeckoUICalendar__header__title--clickable {
     @apply bg-surface-hover;
   }
 
-  .GeckoCalendar__header__title-text {
+  .GeckoUICalendar__header__title-text {
     @apply font-bold text-text-primary text-sm;
   }
 
-  .GeckoCalendar__header__arrow-button {
+  .GeckoUICalendar__header__arrow-button {
     @apply h-10 w-10 items-center justify-center rounded-md active:bg-surface-hover;
   }
 
-  .GeckoCalendar__header__arrow-icon {
+  .GeckoUICalendar__header__arrow-icon {
     @apply text-text-primary text-xl font-bold;
   }
 
-  .GeckoCalendar__day-picker-weekdays {
+  .GeckoUICalendar__day-picker-weekdays {
     @apply flex-row mb-2 opacity-40;
   }
 
-  .GeckoCalendar__day-picker-weekday {
+  .GeckoUICalendar__day-picker-weekday {
     @apply flex-1 text-center font-medium text-text-primary text-xs;
   }
 
-  .GeckoCalendar__day-picker {
+  .GeckoUICalendar__day-picker {
     @apply flex-col;
   }
 
-  .GeckoCalendar__day-picker-row {
+  .GeckoUICalendar__day-picker-row {
     @apply flex-row;
   }
 
-  .GeckoCalendar__day-picker__button {
+  .GeckoUICalendar__day-picker__button {
     @apply flex-1 items-center justify-center rounded-md;
     aspect-ratio: 1;
   }
 
-  .GeckoCalendar__day-picker__button-text {
+  .GeckoUICalendar__day-picker__button-text {
     @apply text-text-primary text-sm;
   }
 
-  .GeckoCalendar__day-picker__button--selected {
+  .GeckoUICalendar__day-picker__button--selected {
     @apply bg-primary-700 rounded-md;
   }
 
-  .GeckoCalendar__day-picker__button--in-range {
+  .GeckoUICalendar__day-picker__button--in-range {
     @apply bg-primary-700 rounded-none;
   }
 
-  .GeckoCalendar__day-picker__button--range-start {
+  .GeckoUICalendar__day-picker__button--range-start {
     @apply bg-primary-700 rounded-l-md rounded-r-none;
   }
 
-  .GeckoCalendar__day-picker__button--range-end {
+  .GeckoUICalendar__day-picker__button--range-end {
     @apply bg-primary-700 rounded-r-md rounded-l-none;
   }
 
-  .GeckoCalendar__month-picker {
+  .GeckoUICalendar__month-picker {
     @apply flex-col;
   }
 
-  .GeckoCalendar__month-picker-row {
+  .GeckoUICalendar__month-picker-row {
     @apply flex-row;
   }
 
-  .GeckoCalendar__month-picker__button {
+  .GeckoUICalendar__month-picker__button {
     @apply flex-1 items-center justify-center rounded-md py-5;
   }
 
-  .GeckoCalendar__month-picker__button--selected {
+  .GeckoUICalendar__month-picker__button--selected {
     @apply bg-surface-hover;
   }
 
-  .GeckoCalendar__month-picker__button-text {
+  .GeckoUICalendar__month-picker__button-text {
     @apply text-text-primary text-sm;
   }
 
-  .GeckoCalendar__year-picker {
+  .GeckoUICalendar__year-picker {
     @apply flex-col;
   }
 
-  .GeckoCalendar__year-picker-row {
+  .GeckoUICalendar__year-picker-row {
     @apply flex-row;
   }
 
-  .GeckoCalendar__year-picker__button {
+  .GeckoUICalendar__year-picker__button {
     @apply flex-1 items-center justify-center rounded-md py-5;
   }
 
-  .GeckoCalendar__year-picker__button--selected {
+  .GeckoUICalendar__year-picker__button--selected {
     @apply bg-surface-hover;
   }
 
-  .GeckoCalendar__year-picker__button--prev-next {
+  .GeckoUICalendar__year-picker__button--prev-next {
     @apply opacity-40;
   }
 
-  .GeckoCalendar__year-picker__button-text {
+  .GeckoUICalendar__year-picker__button-text {
     @apply text-text-primary text-sm;
   }
 }

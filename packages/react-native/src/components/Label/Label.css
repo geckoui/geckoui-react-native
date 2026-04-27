@@ -1,9 +1,9 @@
 @layer components {
-  .GeckoLabel {
+  .GeckoUILabel {
     @apply text-sm font-medium text-text-secondary;
   }
 
-  .GeckoLabel__required-indicator {
+  .GeckoUILabel__required-indicator {
     @apply text-red-500;
   }
 }

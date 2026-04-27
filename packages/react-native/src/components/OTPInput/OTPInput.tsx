@@ -11,24 +11,24 @@ import { twMerge } from 'tailwind-merge';
 
 import type { OTPInputProps } from './OTPInput.types';
 
-const containerCva = cva('GeckoOTPInput', {
+const containerCva = cva('GeckoUIOTPInput', {
   variants: {
     disabled: {
-      true: 'GeckoOTPInput--disabled',
+      true: 'GeckoUIOTPInput--disabled',
       false: '',
     },
   },
   defaultVariants: { disabled: false },
 });
 
-const inputCva = cva('GeckoOTPInput__input', {
+const inputCva = cva('GeckoUIOTPInput__input', {
   variants: {
     focused: {
-      true: 'GeckoOTPInput__input--focused',
+      true: 'GeckoUIOTPInput__input--focused',
       false: '',
     },
     disabled: {
-      true: 'GeckoOTPInput__input--disabled',
+      true: 'GeckoUIOTPInput__input--disabled',
       false: '',
     },
   },
@@ -91,7 +91,7 @@ const OTPInputImpl = ({
       style={style}
     >
       {Array.from({ length }).map((_, index) => (
-        <View key={index} className="GeckoOTPInput__cell" style={cellStyle}>
+        <View key={index} className="GeckoUIOTPInput__cell" style={cellStyle}>
           <TextInput
             ref={(el) => {
               inputRefs.current[index] = el;

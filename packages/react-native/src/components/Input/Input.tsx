@@ -26,16 +26,16 @@ const InputImpl = ({
   return (
     <View
       className={twMerge(
-        'GeckoInput',
-        disabled && 'GeckoInput--disabled',
-        focused && !disabled && 'GeckoInput--focused',
+        'GeckoUIInput',
+        disabled && 'GeckoUIInput--disabled',
+        focused && !disabled && 'GeckoUIInput--focused',
         className,
       )}
       style={style}
     >
       {prefix}
       <TextInput
-        className="GeckoInput__input"
+        className="GeckoUIInput__input"
         style={inputStyle}
         editable={editable}
         onFocus={(e) => {

@@ -11,10 +11,10 @@ export const Label = ({
   style,
   ...rest
 }: LabelProps): React.ReactElement => (
-  <Text className={twMerge('GeckoLabel', className)} style={style} {...rest}>
+  <Text className={twMerge('GeckoUILabel', className)} style={style} {...rest}>
     {children}
     {required ? (
-      <Text className="GeckoLabel__required-indicator">*</Text>
+      <Text className="GeckoUILabel__required-indicator">*</Text>
     ) : null}
   </Text>
 );

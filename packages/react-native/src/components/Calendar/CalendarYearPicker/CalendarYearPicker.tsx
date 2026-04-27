@@ -29,9 +29,9 @@ export const CalendarYearPicker = ({
         onClickRightArrow={handleRight}
         onClickHeader={onClickHeader}
       />
-      <View className="GeckoCalendar__year-picker">
+      <View className="GeckoUICalendar__year-picker">
         {[0, 1, 2].map((rowIndex) => (
-          <View key={rowIndex} className="GeckoCalendar__year-picker-row">
+          <View key={rowIndex} className="GeckoUICalendar__year-picker-row">
             {years
               .slice(rowIndex * 4, rowIndex * 4 + 4)
               .map((year, colIndex) => {
@@ -41,14 +41,14 @@ export const CalendarYearPicker = ({
                     key={year}
                     onPress={() => onSelectYear?.(year)}
                     className={twMerge(
-                      'GeckoCalendar__year-picker__button',
+                      'GeckoUICalendar__year-picker__button',
                       activeYear === year &&
-                        'GeckoCalendar__year-picker__button--selected',
+                        'GeckoUICalendar__year-picker__button--selected',
                       (i === 0 || i === 11) &&
-                        'GeckoCalendar__year-picker__button--prev-next',
+                        'GeckoUICalendar__year-picker__button--prev-next',
                     )}
                   >
-                    <Text className="GeckoCalendar__year-picker__button-text">
+                    <Text className="GeckoUICalendar__year-picker__button-text">
                       {year}
                     </Text>
                   </Pressable>

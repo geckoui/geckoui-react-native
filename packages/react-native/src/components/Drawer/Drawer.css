@@ -1,17 +1,17 @@
 @layer components {
-  .GeckoDrawer__drawer {
+  .GeckoUIDrawer__drawer {
     @apply bg-surface-primary shadow-xl;
   }
 
-  .GeckoDrawer__drawer--right,
-  .GeckoDrawer__drawer--left {
+  .GeckoUIDrawer__drawer--right,
+  .GeckoUIDrawer__drawer--left {
     @apply h-full;
     width: 80%;
     max-width: 400px;
   }
 
-  .GeckoDrawer__drawer--bottom,
-  .GeckoDrawer__drawer--top {
+  .GeckoUIDrawer__drawer--bottom,
+  .GeckoUIDrawer__drawer--top {
     @apply w-full;
     max-height: 60%;
   }

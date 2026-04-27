@@ -1,5 +1,5 @@
 @layer components {
-  .GeckoDialog__dialog {
+  .GeckoUIDialog__dialog {
     @apply bg-surface-primary w-full rounded-md p-6;
     max-width: 400px;
   }

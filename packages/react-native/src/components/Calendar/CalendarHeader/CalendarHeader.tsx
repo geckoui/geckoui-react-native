@@ -10,27 +10,27 @@ export const CalendarHeader = ({
   header,
   onClickHeader,
 }: CalendarHeaderProps): React.ReactElement => (
-  <View className="GeckoCalendar__header">
+  <View className="GeckoUICalendar__header">
     <Pressable
-      className="GeckoCalendar__header__arrow-button"
+      className="GeckoUICalendar__header__arrow-button"
       onPress={onClickLeftArrow}
     >
-      <Text className="GeckoCalendar__header__arrow-icon">‹</Text>
+      <Text className="GeckoUICalendar__header__arrow-icon">‹</Text>
     </Pressable>
     <Pressable
       className={twMerge(
-        'GeckoCalendar__header__title',
-        onClickHeader ? 'GeckoCalendar__header__title--clickable' : undefined,
+        'GeckoUICalendar__header__title',
+        onClickHeader ? 'GeckoUICalendar__header__title--clickable' : undefined,
       )}
       onPress={onClickHeader}
     >
-      <Text className="GeckoCalendar__header__title-text">{header}</Text>
+      <Text className="GeckoUICalendar__header__title-text">{header}</Text>
     </Pressable>
     <Pressable
-      className="GeckoCalendar__header__arrow-button"
+      className="GeckoUICalendar__header__arrow-button"
       onPress={onClickRightArrow}
     >
-      <Text className="GeckoCalendar__header__arrow-icon">›</Text>
+      <Text className="GeckoUICalendar__header__arrow-icon">›</Text>
     </Pressable>
   </View>
 );

@@ -18,15 +18,15 @@ export const Radio = ({
     disabled={disabled}
     onPress={() => onChange?.(!checked)}
     className={twMerge(
-      'GeckoRadio',
-      checked && 'GeckoRadio--checked',
-      disabled && 'GeckoRadio--disabled',
+      'GeckoUIRadio',
+      checked && 'GeckoUIRadio--checked',
+      disabled && 'GeckoUIRadio--disabled',
       className,
     )}
     style={style}
     {...rest}
   >
-    {checked ? <View className="GeckoRadio__dot" /> : null}
+    {checked ? <View className="GeckoUIRadio__dot" /> : null}
   </Pressable>
 );
 

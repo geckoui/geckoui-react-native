@@ -51,18 +51,18 @@ export const Pagination = ({
   const isNextDisabled = currentPage === totalPages;
 
   return (
-    <View className={twMerge('GeckoPagination', className)} style={style}>
+    <View className={twMerge('GeckoUIPagination', className)} style={style}>
       <Pressable
         accessibilityRole="button"
         accessibilityState={{ disabled: isPrevDisabled }}
         className={twMerge(
-          'GeckoPagination__arrow',
-          isPrevDisabled && 'GeckoPagination__arrow--disabled',
+          'GeckoUIPagination__arrow',
+          isPrevDisabled && 'GeckoUIPagination__arrow--disabled',
         )}
         disabled={isPrevDisabled}
         onPress={() => onChange(currentPage - 1)}
       >
-        <Text className="GeckoPagination__arrow-icon">‹</Text>
+        <Text className="GeckoUIPagination__arrow-icon">‹</Text>
       </Pressable>
 
       {pages.map((page, index) => {
@@ -73,17 +73,17 @@ export const Pagination = ({
             key={index}
             accessibilityRole="button"
             className={twMerge(
-              'GeckoPagination__page-button',
-              isActive && 'GeckoPagination__page-button--active',
+              'GeckoUIPagination__page-button',
+              isActive && 'GeckoUIPagination__page-button--active',
             )}
             disabled={isEllipsis}
             onPress={() => !isEllipsis && onChange(Number(page))}
           >
             <Text
               className={twMerge(
-                'GeckoPagination__page-button-text',
-                isActive && 'GeckoPagination__page-button-text--active',
-                isEllipsis && 'GeckoPagination__page-button-text--ellipsis',
+                'GeckoUIPagination__page-button-text',
+                isActive && 'GeckoUIPagination__page-button-text--active',
+                isEllipsis && 'GeckoUIPagination__page-button-text--ellipsis',
               )}
             >
               {page}
@@ -96,13 +96,13 @@ export const Pagination = ({
         accessibilityRole="button"
         accessibilityState={{ disabled: isNextDisabled }}
         className={twMerge(
-          'GeckoPagination__arrow',
-          isNextDisabled && 'GeckoPagination__arrow--disabled',
+          'GeckoUIPagination__arrow',
+          isNextDisabled && 'GeckoUIPagination__arrow--disabled',
         )}
         disabled={isNextDisabled}
         onPress={() => onChange(currentPage + 1)}
       >
-        <Text className="GeckoPagination__arrow-icon">›</Text>
+        <Text className="GeckoUIPagination__arrow-icon">›</Text>
       </Pressable>
     </View>
   );

@@ -1,5 +1,5 @@
 @layer components {
-  .GeckoSpinner {
+  .GeckoUISpinnerIcon {
     @apply text-primary-600;
   }
 }

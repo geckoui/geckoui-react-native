@@ -20,7 +20,7 @@ export const Spinner = ({
 }: SpinnerProps): React.ReactElement => (
   <ActivityIndicator
     size={size}
-    className={twMerge('GeckoSpinner', className)}
+    className={twMerge('GeckoUISpinnerIcon', className)}
     style={style}
     {...rest}
   />

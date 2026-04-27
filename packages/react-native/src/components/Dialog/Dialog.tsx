@@ -72,7 +72,7 @@ export function DialogHost(): React.ReactElement | null {
           onPress={dismissOnOutsideClick ? dismiss : undefined}
         />
         <Animated.View
-          className={twMerge('GeckoDialog__dialog', className)}
+          className={twMerge('GeckoUIDialog__dialog', className)}
           style={[{ transform: [{ scale: scaleAnim }] }, style]}
         >
           {

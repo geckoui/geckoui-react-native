@@ -1,80 +1,80 @@
 @layer components {
-  .GeckoCounterInput {
+  .GeckoUICounterInput {
     @apply flex-row items-center;
   }
 
-  .GeckoCounterInput--disabled {
+  .GeckoUICounterInput--disabled {
     @apply opacity-50;
   }
 
-  .GeckoCounterInput__button {
+  .GeckoUICounterInput__button {
     @apply items-center justify-center bg-surface-primary border border-border-secondary;
   }
 
-  .GeckoCounterInput__button--decrement {
+  .GeckoUICounterInput__button--decrement {
     @apply rounded-l-md;
   }
 
-  .GeckoCounterInput__button--increment {
+  .GeckoUICounterInput__button--increment {
     @apply rounded-r-md;
   }
 
-  .GeckoCounterInput__button--focused {
+  .GeckoUICounterInput__button--focused {
     @apply border-primary-400;
   }
 
-  .GeckoCounterInput__button--sm {
+  .GeckoUICounterInput__button--sm {
     @apply h-8 w-8;
   }
 
-  .GeckoCounterInput__button--md {
+  .GeckoUICounterInput__button--md {
     @apply h-10 w-10;
   }
 
-  .GeckoCounterInput__button--lg {
+  .GeckoUICounterInput__button--lg {
     @apply h-12 w-12;
   }
 
-  .GeckoCounterInput__input {
+  .GeckoUICounterInput__input {
     @apply border-t border-b border-border-secondary bg-transparent text-center text-text-primary p-0;
   }
 
-  .GeckoCounterInput__input--focused {
+  .GeckoUICounterInput__input--focused {
     @apply border-primary-400;
   }
 
-  .GeckoCounterInput__input--disabled {
+  .GeckoUICounterInput__input--disabled {
     @apply bg-surface-disabled;
   }
 
-  .GeckoCounterInput__input--sm {
+  .GeckoUICounterInput__input--sm {
     @apply h-8 w-12;
     font-size: 12px;
   }
 
-  .GeckoCounterInput__input--md {
+  .GeckoUICounterInput__input--md {
     @apply h-10 w-16;
     font-size: 14px;
   }
 
-  .GeckoCounterInput__input--lg {
+  .GeckoUICounterInput__input--lg {
     @apply h-12 w-20;
     font-size: 16px;
   }
 
-  .GeckoCounterInput__icon {
+  .GeckoUICounterInput__icon {
     @apply text-text-primary leading-none;
   }
 
-  .GeckoCounterInput__icon--sm {
+  .GeckoUICounterInput__icon--sm {
     @apply text-xs;
   }
 
-  .GeckoCounterInput__icon--md {
+  .GeckoUICounterInput__icon--md {
     @apply text-sm;
   }
 
-  .GeckoCounterInput__icon--lg {
+  .GeckoUICounterInput__icon--lg {
     @apply text-base;
   }
 }

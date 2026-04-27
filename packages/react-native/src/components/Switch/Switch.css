@@ -1,33 +1,33 @@
 @layer components {
-  .GeckoSwitch {
+  .GeckoUISwitch {
     @apply flex-row items-center rounded-full bg-surface-hover justify-start px-0.5;
   }
 
-  .GeckoSwitch--sm {
+  .GeckoUISwitch--sm {
     @apply h-4 w-7;
   }
 
-  .GeckoSwitch--md {
+  .GeckoUISwitch--md {
     @apply h-6 w-11;
   }
 
-  .GeckoSwitch--on {
+  .GeckoUISwitch--on {
     @apply bg-primary-600;
   }
 
-  .GeckoSwitch--disabled {
+  .GeckoUISwitch--disabled {
     @apply opacity-50;
   }
 
-  .GeckoSwitch__thumb {
+  .GeckoUISwitch__thumb {
     @apply bg-surface-primary rounded-full;
   }
 
-  .GeckoSwitch__thumb--sm {
+  .GeckoUISwitch__thumb--sm {
     @apply h-3 w-3;
   }
 
-  .GeckoSwitch__thumb--md {
+  .GeckoUISwitch__thumb--md {
     @apply h-5 w-5;
   }
 

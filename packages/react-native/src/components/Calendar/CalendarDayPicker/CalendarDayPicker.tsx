@@ -54,16 +54,16 @@ export const CalendarDayPicker = (
         onClickRightArrow={onClickRightArrow}
         onClickHeader={onClickHeader}
       />
-      <View className="GeckoCalendar__day-picker-weekdays">
+      <View className="GeckoUICalendar__day-picker-weekdays">
         {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => (
-          <Text key={i} className="GeckoCalendar__day-picker-weekday">
+          <Text key={i} className="GeckoUICalendar__day-picker-weekday">
             {d}
           </Text>
         ))}
       </View>
-      <View className="GeckoCalendar__day-picker">
+      <View className="GeckoUICalendar__day-picker">
         {weeks.map((week, weekIndex) => (
-          <View key={weekIndex} className="GeckoCalendar__day-picker-row">
+          <View key={weekIndex} className="GeckoUICalendar__day-picker-row">
             {week.map((date, dayIndex) => {
               const isActiveMonth = activeMonth === date.month;
 
@@ -71,7 +71,7 @@ export const CalendarDayPicker = (
                 return (
                   <View
                     key={dayIndex}
-                    className="GeckoCalendar__day-picker__button"
+                    className="GeckoUICalendar__day-picker__button"
                   />
                 );
               }
@@ -127,13 +127,15 @@ export const CalendarDayPicker = (
                   disabled={!!isDisable}
                   onPress={() => handleDateClick(formattedDate)}
                   className={twMerge(
-                    'GeckoCalendar__day-picker__button',
-                    isSelected && 'GeckoCalendar__day-picker__button--selected',
+                    'GeckoUICalendar__day-picker__button',
+                    isSelected &&
+                      'GeckoUICalendar__day-picker__button--selected',
                     isRangeStart &&
-                      'GeckoCalendar__day-picker__button--range-start',
+                      'GeckoUICalendar__day-picker__button--range-start',
                     isRangeEnd &&
-                      'GeckoCalendar__day-picker__button--range-end',
-                    isInRange && 'GeckoCalendar__day-picker__button--in-range',
+                      'GeckoUICalendar__day-picker__button--range-end',
+                    isInRange &&
+                      'GeckoUICalendar__day-picker__button--in-range',
                     !isActiveMonth && 'opacity-40',
                     isDisable && 'opacity-30',
                   )}
@@ -149,7 +151,7 @@ export const CalendarDayPicker = (
                   ) : (
                     <Text
                       className={twMerge(
-                        'GeckoCalendar__day-picker__button-text',
+                        'GeckoUICalendar__day-picker__button-text',
                         isToday && 'text-primary-600',
                         isHighlighted && 'text-text-on-primary',
                       )}

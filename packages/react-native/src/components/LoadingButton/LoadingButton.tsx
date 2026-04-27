@@ -17,22 +17,22 @@ const spinnerCva = cva('', {
     {
       variant: 'filled',
       color: 'primary',
-      class: 'GeckoLoadingButton__spinner--filled-primary',
+      class: 'GeckoUILoadingButton__spinner--filled-primary',
     },
     {
       variant: 'outlined',
       color: 'primary',
-      class: 'GeckoLoadingButton__spinner--outlined-primary',
+      class: 'GeckoUILoadingButton__spinner--outlined-primary',
     },
     {
       variant: 'ghost',
       color: 'primary',
-      class: 'GeckoLoadingButton__spinner--ghost-primary',
+      class: 'GeckoUILoadingButton__spinner--ghost-primary',
     },
     {
       variant: 'icon',
       color: 'primary',
-      class: 'GeckoLoadingButton__spinner--icon-primary',
+      class: 'GeckoUILoadingButton__spinner--icon-primary',
     },
   ],
   defaultVariants: { variant: 'filled', color: 'primary' },

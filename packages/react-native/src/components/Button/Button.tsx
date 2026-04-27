@@ -6,7 +6,7 @@ import { Pressable } from 'react-native';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer';
 import type { ButtonProps } from './Button.types';
 
-const buttonCva = cva('GeckoButton', {
+const buttonCva = cva('GeckoUIButton', {
   variants: {
     variant: {
       filled: '',
@@ -18,31 +18,35 @@ const buttonCva = cva('GeckoButton', {
       primary: '',
     },
     size: {
-      xs: 'GeckoButton--xs',
-      sm: 'GeckoButton--sm',
-      md: 'GeckoButton--md',
-      lg: 'GeckoButton--lg',
-      xl: 'GeckoButton--xl',
+      xs: 'GeckoUIButton--xs',
+      sm: 'GeckoUIButton--sm',
+      md: 'GeckoUIButton--md',
+      lg: 'GeckoUIButton--lg',
+      xl: 'GeckoUIButton--xl',
     },
   },
   compoundVariants: [
     {
       variant: 'filled',
       color: 'primary',
-      class: 'GeckoButton--filled-primary',
+      class: 'GeckoUIButton--filled-primary',
     },
     {
       variant: 'outlined',
       color: 'primary',
-      class: 'GeckoButton--outlined-primary',
+      class: 'GeckoUIButton--outlined-primary',
     },
-    { variant: 'ghost', color: 'primary', class: 'GeckoButton--ghost-primary' },
-    { variant: 'icon', color: 'primary', class: 'GeckoButton--icon-primary' },
+    {
+      variant: 'ghost',
+      color: 'primary',
+      class: 'GeckoUIButton--ghost-primary',
+    },
+    { variant: 'icon', color: 'primary', class: 'GeckoUIButton--icon-primary' },
   ],
   defaultVariants: { variant: 'filled', color: 'primary', size: 'md' },
 });
 
-export const labelCva = cva('GeckoButton__label', {
+export const labelCva = cva('GeckoUIButton__label', {
   variants: {
     variant: {
       filled: '',
@@ -54,14 +58,14 @@ export const labelCva = cva('GeckoButton__label', {
       primary: '',
     },
     size: {
-      xs: 'GeckoButton__label--xs',
-      sm: 'GeckoButton__label--sm',
-      md: 'GeckoButton__label--md',
-      lg: 'GeckoButton__label--lg',
-      xl: 'GeckoButton__label--xl',
+      xs: 'GeckoUIButton__label--xs',
+      sm: 'GeckoUIButton__label--sm',
+      md: 'GeckoUIButton__label--md',
+      lg: 'GeckoUIButton__label--lg',
+      xl: 'GeckoUIButton__label--xl',
     },
     disabled: {
-      true: 'GeckoButton__label--disabled',
+      true: 'GeckoUIButton__label--disabled',
       false: '',
     },
   },
@@ -69,22 +73,22 @@ export const labelCva = cva('GeckoButton__label', {
     {
       variant: 'filled',
       color: 'primary',
-      class: 'GeckoButton__label--filled-primary',
+      class: 'GeckoUIButton__label--filled-primary',
     },
     {
       variant: 'outlined',
       color: 'primary',
-      class: 'GeckoButton__label--outlined-primary',
+      class: 'GeckoUIButton__label--outlined-primary',
     },
     {
       variant: 'ghost',
       color: 'primary',
-      class: 'GeckoButton__label--ghost-primary',
+      class: 'GeckoUIButton__label--ghost-primary',
     },
     {
       variant: 'icon',
       color: 'primary',
-      class: 'GeckoButton__label--icon-primary',
+      class: 'GeckoUIButton__label--icon-primary',
     },
   ],
   defaultVariants: {

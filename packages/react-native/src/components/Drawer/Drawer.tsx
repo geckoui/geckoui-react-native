@@ -109,8 +109,8 @@ function DrawerComponent({
       )}
       <Animated.View
         className={twMerge(
-          'GeckoDrawer__drawer',
-          `GeckoDrawer__drawer--${placement}`,
+          'GeckoUIDrawer__drawer',
+          `GeckoUIDrawer__drawer--${placement}`,
           className,
         )}
         style={[drawerPositions[placement], transformStyle, style]}

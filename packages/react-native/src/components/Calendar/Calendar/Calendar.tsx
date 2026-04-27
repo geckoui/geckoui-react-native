@@ -136,7 +136,7 @@ export const Calendar = (props: CalendarProps): React.ReactElement => {
         const secondMonth = activeMonth === 11 ? 0 : activeMonth + 1;
         const secondYear = activeMonth === 11 ? activeYear + 1 : activeYear;
         return (
-          <View className="GeckoCalendar__dual">
+          <View className="GeckoUICalendar__dual">
             <CalendarDayPicker
               mode="range"
               activeMonth={activeMonth}
@@ -201,7 +201,7 @@ export const Calendar = (props: CalendarProps): React.ReactElement => {
   };
 
   return (
-    <View className={twMerge('GeckoCalendar', className)} style={style}>
+    <View className={twMerge('GeckoUICalendar', className)} style={style}>
       {renderContent()}
     </View>
   );

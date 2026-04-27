@@ -11,7 +11,7 @@ export const InputError = ({
   ...rest
 }: InputErrorProps): React.ReactElement => (
   <Text
-    className={twMerge('GeckoInputError', className)}
+    className={twMerge('GeckoUIInputError', className)}
     style={style}
     {...rest}
   >

@@ -6,40 +6,40 @@ import { twMerge } from 'tailwind-merge';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer';
 import type { AlertProps } from './Alert.types';
 
-const alertCva = cva('GeckoAlert', {
+const alertCva = cva('GeckoUIAlert', {
   variants: {
     variant: {
-      default: 'GeckoAlert--default',
-      error: 'GeckoAlert--error',
-      warning: 'GeckoAlert--warning',
-      info: 'GeckoAlert--info',
-      success: 'GeckoAlert--success',
+      default: 'GeckoUIAlert--default',
+      error: 'GeckoUIAlert--error',
+      warning: 'GeckoUIAlert--warning',
+      info: 'GeckoUIAlert--info',
+      success: 'GeckoUIAlert--success',
     },
   },
   defaultVariants: { variant: 'default' },
 });
 
-const iconCva = cva('GeckoAlert__icon', {
+const iconCva = cva('GeckoUIAlert__icon', {
   variants: {
     variant: {
-      default: 'GeckoAlert__icon--default',
-      error: 'GeckoAlert__icon--error',
-      warning: 'GeckoAlert__icon--warning',
-      info: 'GeckoAlert__icon--info',
-      success: 'GeckoAlert__icon--success',
+      default: 'GeckoUIAlert__icon--default',
+      error: 'GeckoUIAlert__icon--error',
+      warning: 'GeckoUIAlert__icon--warning',
+      info: 'GeckoUIAlert__icon--info',
+      success: 'GeckoUIAlert__icon--success',
     },
   },
   defaultVariants: { variant: 'default' },
 });
 
-const titleCva = cva('GeckoAlert__title', {
+const titleCva = cva('GeckoUIAlert__title', {
   variants: {
     variant: {
-      default: 'GeckoAlert--default',
-      error: 'GeckoAlert--error',
-      warning: 'GeckoAlert--warning',
-      info: 'GeckoAlert--info',
-      success: 'GeckoAlert--success',
+      default: 'GeckoUIAlert--default',
+      error: 'GeckoUIAlert--error',
+      warning: 'GeckoUIAlert--warning',
+      info: 'GeckoUIAlert--info',
+      success: 'GeckoUIAlert--success',
     },
   },
   defaultVariants: { variant: 'default' },
@@ -69,15 +69,15 @@ export const Alert = ({
     style={style}
     {...rest}
   >
-    <View className="GeckoAlert__body">
+    <View className="GeckoUIAlert__body">
       {icon ?? (
         <View className={twMerge(iconCva({ variant }), iconClassName)}>
-          <Text className="GeckoAlert__icon-glyph">
+          <Text className="GeckoUIAlert__icon-glyph">
             {DEFAULT_GLYPH[variant]}
           </Text>
         </View>
       )}
-      <View className="GeckoAlert__title-wrap">
+      <View className="GeckoUIAlert__title-wrap">
         <DynamicComponentRenderer
           component={title}
           className={titleCva({ variant })}
@@ -88,17 +88,17 @@ export const Alert = ({
           accessibilityRole="button"
           accessibilityLabel="Dismiss"
           onPress={onRemove}
-          className="GeckoAlert__remove"
+          className="GeckoUIAlert__remove"
         >
-          <Text className="GeckoAlert__remove-glyph">×</Text>
+          <Text className="GeckoUIAlert__remove-glyph">×</Text>
         </Pressable>
       ) : null}
     </View>
     {description ? (
-      <View className="GeckoAlert__description">
+      <View className="GeckoUIAlert__description">
         <DynamicComponentRenderer
           component={description}
-          className="GeckoAlert__description-text"
+          className="GeckoUIAlert__description-text"
         />
       </View>
     ) : null}

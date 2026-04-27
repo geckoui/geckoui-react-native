@@ -7,60 +7,60 @@ import { twMerge } from 'tailwind-merge';
 
 import type { CounterInputProps } from './CounterInput.types';
 
-const containerCva = cva('GeckoCounterInput', {
+const containerCva = cva('GeckoUICounterInput', {
   variants: {
     disabled: {
-      true: 'GeckoCounterInput--disabled',
+      true: 'GeckoUICounterInput--disabled',
       false: '',
     },
   },
   defaultVariants: { disabled: false },
 });
 
-const buttonCva = cva('GeckoCounterInput__button', {
+const buttonCva = cva('GeckoUICounterInput__button', {
   variants: {
     size: {
-      sm: 'GeckoCounterInput__button--sm',
-      md: 'GeckoCounterInput__button--md',
-      lg: 'GeckoCounterInput__button--lg',
+      sm: 'GeckoUICounterInput__button--sm',
+      md: 'GeckoUICounterInput__button--md',
+      lg: 'GeckoUICounterInput__button--lg',
     },
     action: {
-      decrement: 'GeckoCounterInput__button--decrement',
-      increment: 'GeckoCounterInput__button--increment',
+      decrement: 'GeckoUICounterInput__button--decrement',
+      increment: 'GeckoUICounterInput__button--increment',
     },
     focused: {
-      true: 'GeckoCounterInput__button--focused',
+      true: 'GeckoUICounterInput__button--focused',
       false: '',
     },
   },
   defaultVariants: { size: 'md', focused: false },
 });
 
-const inputCva = cva('GeckoCounterInput__input', {
+const inputCva = cva('GeckoUICounterInput__input', {
   variants: {
     size: {
-      sm: 'GeckoCounterInput__input--sm',
-      md: 'GeckoCounterInput__input--md',
-      lg: 'GeckoCounterInput__input--lg',
+      sm: 'GeckoUICounterInput__input--sm',
+      md: 'GeckoUICounterInput__input--md',
+      lg: 'GeckoUICounterInput__input--lg',
     },
     focused: {
-      true: 'GeckoCounterInput__input--focused',
+      true: 'GeckoUICounterInput__input--focused',
       false: '',
     },
     disabled: {
-      true: 'GeckoCounterInput__input--disabled',
+      true: 'GeckoUICounterInput__input--disabled',
       false: '',
     },
   },
   defaultVariants: { size: 'md', focused: false, disabled: false },
 });
 
-const iconCva = cva('GeckoCounterInput__icon', {
+const iconCva = cva('GeckoUICounterInput__icon', {
   variants: {
     size: {
-      sm: 'GeckoCounterInput__icon--sm',
-      md: 'GeckoCounterInput__icon--md',
-      lg: 'GeckoCounterInput__icon--lg',
+      sm: 'GeckoUICounterInput__icon--sm',
+      md: 'GeckoUICounterInput__icon--md',
+      lg: 'GeckoUICounterInput__icon--lg',
     },
   },
   defaultVariants: { size: 'md' },

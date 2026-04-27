@@ -25,18 +25,18 @@ export const Checkbox = ({
       disabled={disabled}
       onPress={() => onChange?.(checked !== true)}
       className={twMerge(
-        'GeckoCheckbox',
-        active && 'GeckoCheckbox--checked',
-        disabled && 'GeckoCheckbox--disabled',
+        'GeckoUICheckbox',
+        active && 'GeckoUICheckbox--checked',
+        disabled && 'GeckoUICheckbox--disabled',
         className,
       )}
       style={style}
       {...rest}
     >
       {indeterminate ? (
-        <View className="GeckoCheckbox__dash" />
+        <View className="GeckoUICheckbox__dash" />
       ) : checked ? (
-        <Text className="GeckoCheckbox__check">✓</Text>
+        <Text className="GeckoUICheckbox__check">✓</Text>
       ) : null}
     </Pressable>
   );

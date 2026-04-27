@@ -1,21 +1,21 @@
 @layer components {
-  .GeckoInput {
+  .GeckoUIInput {
     @apply h-[38px] flex-row items-center gap-2 w-full rounded-md border border-border-secondary px-3 bg-surface-primary;
   }
 
-  .GeckoInput--focused {
+  .GeckoUIInput--focused {
     @apply border-primary-400;
   }
 
-  .GeckoInput--disabled {
+  .GeckoUIInput--disabled {
     @apply bg-surface-disabled;
   }
 
-  .GeckoInput__input {
+  .GeckoUIInput__input {
     @apply py-2.5 h-[38px] flex-1 text-text-primary p-0;
   }
 
-  .GeckoInput__input {
+  .GeckoUIInput__input {
     @apply placeholder:text-text-secondary;
   }
 }

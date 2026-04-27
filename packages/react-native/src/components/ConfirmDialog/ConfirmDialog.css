@@ -1,27 +1,27 @@
 @layer components {
-  .GeckoConfirmDialog__dialog {
+  .GeckoUIConfirmDialog__dialog {
     @apply pt-6 pb-4;
   }
 
-  .GeckoConfirmDialog__title {
+  .GeckoUIConfirmDialog__title {
     @apply text-text-primary text-base font-semibold leading-none;
   }
 
-  .GeckoConfirmDialog__content {
+  .GeckoUIConfirmDialog__content {
     @apply py-3;
   }
 
-  .GeckoConfirmDialog__content-text {
+  .GeckoUIConfirmDialog__content-text {
     @apply text-text-tertiary text-sm;
   }
 
-  .GeckoConfirmDialog__actions {
+  .GeckoUIConfirmDialog__actions {
     @apply flex-row justify-end gap-2;
   }
 
-  .GeckoConfirmDialog__cancel-button {
+  .GeckoUIConfirmDialog__cancel-button {
   }
 
-  .GeckoConfirmDialog__confirm-button {
+  .GeckoUIConfirmDialog__confirm-button {
   }
 }

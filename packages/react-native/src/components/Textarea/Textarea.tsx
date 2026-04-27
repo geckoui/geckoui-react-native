@@ -18,7 +18,7 @@ export const Textarea = ({
     <TextInput
       multiline
       textAlignVertical="top"
-      className={twMerge('GeckoTextarea', className)}
+      className={twMerge('GeckoUITextarea', className)}
       placeholderTextColor="#a3a3a3"
       style={[{ height }, style]}
       {...rest}

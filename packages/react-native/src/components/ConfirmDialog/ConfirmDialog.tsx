@@ -59,7 +59,7 @@ function ConfirmDialogContent({
     }
     if (typeof content === 'string') {
       return (
-        <Text className="GeckoConfirmDialog__content-text">{content}</Text>
+        <Text className="GeckoUIConfirmDialog__content-text">{content}</Text>
       );
     }
     return content as ReactNode;
@@ -68,23 +68,25 @@ function ConfirmDialogContent({
   return (
     <View>
       {title ? (
-        <Text className={twMerge('GeckoConfirmDialog__title', titleClassName)}>
+        <Text
+          className={twMerge('GeckoUIConfirmDialog__title', titleClassName)}
+        >
           {title}
         </Text>
       ) : null}
       <View
-        className={twMerge('GeckoConfirmDialog__content', contentClassName)}
+        className={twMerge('GeckoUIConfirmDialog__content', contentClassName)}
       >
         {renderContent()}
       </View>
-      <View className="GeckoConfirmDialog__actions">
+      <View className="GeckoUIConfirmDialog__actions">
         <LoadingButton
           variant="outlined"
           size="md"
           loading={cancelLoading}
           disabled={confirmLoading}
           className={twMerge(
-            'GeckoConfirmDialog__cancel-button',
+            'GeckoUIConfirmDialog__cancel-button',
             cancelButtonClassName,
           )}
           onPress={handleCancel}
@@ -96,7 +98,7 @@ function ConfirmDialogContent({
           loading={confirmLoading}
           disabled={cancelLoading}
           className={twMerge(
-            'GeckoConfirmDialog__confirm-button',
+            'GeckoUIConfirmDialog__confirm-button',
             confirmButtonClassName,
           )}
           onPress={handleConfirm}
@@ -113,7 +115,7 @@ const show = (options: ConfirmDialogOptions) => {
     dismissOnEsc: true,
     dismissOnOutsideClick: true,
     ...options,
-    className: twMerge('GeckoConfirmDialog__dialog', options.className),
+    className: twMerge('GeckoUIConfirmDialog__dialog', options.className),
     content: ({ dismiss }: DialogContentProps) => (
       <ConfirmDialogContent {...options} dismiss={dismiss} />
     ),

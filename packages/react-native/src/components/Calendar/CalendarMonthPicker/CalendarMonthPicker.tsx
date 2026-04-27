@@ -24,9 +24,9 @@ export const CalendarMonthPicker = ({
         onClickRightArrow={onClickRightArrow}
         onClickHeader={onClickHeader}
       />
-      <View className="GeckoCalendar__month-picker">
+      <View className="GeckoUICalendar__month-picker">
         {[0, 1, 2].map((rowIndex) => (
-          <View key={rowIndex} className="GeckoCalendar__month-picker-row">
+          <View key={rowIndex} className="GeckoUICalendar__month-picker-row">
             {shortMonths
               .slice(rowIndex * 4, rowIndex * 4 + 4)
               .map((monthName, colIndex) => {
@@ -36,12 +36,12 @@ export const CalendarMonthPicker = ({
                     key={monthName}
                     onPress={() => onSelectMonth?.(index)}
                     className={twMerge(
-                      'GeckoCalendar__month-picker__button',
+                      'GeckoUICalendar__month-picker__button',
                       index === activeMonth &&
-                        'GeckoCalendar__month-picker__button--selected',
+                        'GeckoUICalendar__month-picker__button--selected',
                     )}
                   >
-                    <Text className="GeckoCalendar__month-picker__button-text">
+                    <Text className="GeckoUICalendar__month-picker__button-text">
                       {monthName}
                     </Text>
                   </Pressable>

@@ -1,17 +1,17 @@
 @layer components {
-  .GeckoRadio {
+  .GeckoUIRadio {
     @apply h-5 w-5 items-center justify-center rounded-full border border-border-secondary bg-transparent;
   }
 
-  .GeckoRadio--checked {
+  .GeckoUIRadio--checked {
     @apply border-primary-600;
   }
 
-  .GeckoRadio--disabled {
+  .GeckoUIRadio--disabled {
     @apply opacity-50;
   }
 
-  .GeckoRadio__dot {
+  .GeckoUIRadio__dot {
     @apply h-2.5 w-2.5 rounded-full bg-primary-600;
   }
 }

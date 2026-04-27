@@ -7,29 +7,29 @@ import { twMerge } from 'tailwind-merge';
 
 import type { SwitchProps } from './Switch.types';
 
-const trackCva = cva('GeckoSwitch', {
+const trackCva = cva('GeckoUISwitch', {
   variants: {
     size: {
-      sm: 'GeckoSwitch--sm',
-      md: 'GeckoSwitch--md',
+      sm: 'GeckoUISwitch--sm',
+      md: 'GeckoUISwitch--md',
     },
     on: {
-      true: 'GeckoSwitch--on',
+      true: 'GeckoUISwitch--on',
       false: '',
     },
     disabled: {
-      true: 'GeckoSwitch--disabled',
+      true: 'GeckoUISwitch--disabled',
       false: '',
     },
   },
   defaultVariants: { size: 'md', on: false, disabled: false },
 });
 
-const thumbCva = cva('GeckoSwitch__thumb', {
+const thumbCva = cva('GeckoUISwitch__thumb', {
   variants: {
     size: {
-      sm: 'GeckoSwitch__thumb--sm',
-      md: 'GeckoSwitch__thumb--md',
+      sm: 'GeckoUISwitch__thumb--sm',
+      md: 'GeckoUISwitch__thumb--md',
     },
   },
   defaultVariants: { size: 'md' },
