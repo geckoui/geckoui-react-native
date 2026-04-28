@@ -1,0 +1,5 @@
+@layer components {
+  .GeckoUIMenu__items {
+    @apply bg-surface-primary rounded-md border border-border-secondary p-1 shadow-xl;
+  }
+}

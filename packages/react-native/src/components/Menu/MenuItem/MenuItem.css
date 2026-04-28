@@ -1,0 +1,13 @@
+@layer components {
+  .GeckoUIMenu__item {
+    @apply px-3 py-2 rounded active:bg-surface-hover;
+  }
+
+  .GeckoUIMenu__item-text {
+    @apply text-text-secondary text-sm;
+  }
+
+  .GeckoUIMenu__item-text--disabled {
+    @apply text-text-disabled;
+  }
+}

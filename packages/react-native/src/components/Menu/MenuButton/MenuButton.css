@@ -1,0 +1,9 @@
+@layer components {
+  .GeckoUIMenu__button {
+    @apply flex-row items-center gap-2 rounded-md border border-border-secondary px-3 py-2 active:bg-surface-hover;
+  }
+
+  .GeckoUIMenu__button-text {
+    @apply text-text-secondary text-sm;
+  }
+}

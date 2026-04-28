@@ -16,6 +16,16 @@
 @import "./src/components/OTPInput/OTPInput.css";
 @import "./src/components/Pagination/Pagination.css";
 @import "./src/components/Calendar/Calendar.css";
+@import "./src/components/Menu/Menu/Menu.css";
+@import "./src/components/Menu/MenuButton/MenuButton.css";
+@import "./src/components/Menu/MenuItem/MenuItem.css";
+@import "./src/components/Menu/MenuPanel/MenuPanel.css";
+@import "./src/components/Select/Select/Select.css";
+@import "./src/components/Select/SelectButton/SelectButton.css";
+@import "./src/components/Select/SelectDropdownSearch/SelectDropdownSearch.css";
+@import "./src/components/Select/SelectEmpty/SelectEmpty.css";
+@import "./src/components/Select/SelectMenu/SelectMenu.css";
+@import "./src/components/Select/SelectOption/SelectOption.css";
 
 :root {
   --color-primary-50: #edefff;

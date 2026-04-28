@@ -63,3 +63,43 @@ export type {
 export { Drawer, DrawerHost } from './components/Drawer';
 export type { DrawerProps, DrawerPlacementMap } from './components/Drawer';
 export { GeckoUIPortal } from './components/GeckoUIPortal';
+export {
+  Menu,
+  MenuButton,
+  MenuTrigger,
+  MenuPanel,
+  MenuItem,
+  useMenu,
+} from './components/Menu';
+export type {
+  MenuProps,
+  MenuItemProps,
+  MenuTriggerProps,
+  MenuTriggerRenderProps,
+} from './components/Menu';
+export {
+  Select,
+  SelectButton,
+  SelectTrigger,
+  SelectMenu,
+  SelectOption,
+  SelectDropdownSearch,
+  SelectEmpty,
+  SelectConsumer,
+  useSelect,
+} from './components/Select';
+export type {
+  SelectProps,
+  SingleSelectProps,
+  MultiSelectProps,
+  SelectContextProps,
+  SelectOptionProps,
+  SelectOptionConfig,
+  CustomSelectOptionArgs,
+  SelectTriggerProps,
+  SelectTriggerBaseRenderProps,
+  SingleSelectTriggerRenderProps,
+  MultiSelectTriggerRenderProps,
+  SelectMenuProps,
+  SelectEmptyProps,
+} from './components/Select';
