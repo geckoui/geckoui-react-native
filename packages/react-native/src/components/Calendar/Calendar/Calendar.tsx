@@ -49,11 +49,6 @@ export const Calendar = (props: CalendarProps): React.ReactElement => {
     mode === 'range'
       ? (props as CalendarRangeModeProps).onSelectRange
       : undefined;
-  const numberOfMonths =
-    mode === 'range'
-      ? ((props as CalendarRangeModeProps).numberOfMonths ?? 2)
-      : 1;
-
   const today = getTodayDate();
   const initialDate =
     mode === 'range'
@@ -133,36 +128,19 @@ export const Calendar = (props: CalendarProps): React.ReactElement => {
 
     if (view === CalendarType.Day) {
       if (mode === 'range') {
-        const secondMonth = activeMonth === 11 ? 0 : activeMonth + 1;
-        const secondYear = activeMonth === 11 ? activeYear + 1 : activeYear;
         return (
-          <View className="GeckoUICalendar__dual">
-            <CalendarDayPicker
-              mode="range"
-              activeMonth={activeMonth}
-              activeYear={activeYear}
-              onClickLeftArrow={decreaseMonth}
-              onClickRightArrow={increaseMonth}
-              onClickHeader={() => setView(CalendarType.Month)}
-              onSelectRange={handleRangeDateClick}
-              selectedRange={selectedRange}
-              disableDate={disableDate}
-              renderDayCell={renderDayCell}
-            />
-            {numberOfMonths === 2 && (
-              <CalendarDayPicker
-                mode="range"
-                activeMonth={secondMonth}
-                activeYear={secondYear}
-                onClickLeftArrow={decreaseMonth}
-                onClickRightArrow={increaseMonth}
-                onSelectRange={handleRangeDateClick}
-                selectedRange={selectedRange}
-                disableDate={disableDate}
-                renderDayCell={renderDayCell}
-              />
-            )}
-          </View>
+          <CalendarDayPicker
+            mode="range"
+            activeMonth={activeMonth}
+            activeYear={activeYear}
+            onClickLeftArrow={decreaseMonth}
+            onClickRightArrow={increaseMonth}
+            onClickHeader={() => setView(CalendarType.Month)}
+            onSelectRange={handleRangeDateClick}
+            selectedRange={selectedRange}
+            disableDate={disableDate}
+            renderDayCell={renderDayCell}
+          />
         );
       }
 

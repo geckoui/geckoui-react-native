@@ -4,10 +4,6 @@
     width: 320px;
   }
 
-  .GeckoUICalendar__dual {
-    @apply flex-col gap-4;
-  }
-
   .GeckoUICalendar__header {
     @apply flex-row items-center justify-between gap-1 pb-4;
   }
@@ -42,10 +38,17 @@
 
   .GeckoUICalendar__day-picker {
     @apply flex-col;
+    row-gap: 1px;
   }
 
   .GeckoUICalendar__day-picker-row {
-    @apply flex-row;
+    @apply flex-row relative;
+  }
+
+  .GeckoUICalendar__day-picker__range-underlay {
+    @apply absolute bg-primary-700;
+    top: 0;
+    bottom: 0;
   }
 
   .GeckoUICalendar__day-picker__button {
@@ -61,16 +64,12 @@
     @apply bg-primary-700 rounded-md;
   }
 
-  .GeckoUICalendar__day-picker__button--in-range {
-    @apply bg-primary-700 rounded-none;
+  .GeckoUICalendar__day-picker__button--partial-range {
+    @apply bg-primary-200 rounded-md;
   }
 
-  .GeckoUICalendar__day-picker__button--range-start {
-    @apply bg-primary-700 rounded-l-md rounded-r-none;
-  }
-
-  .GeckoUICalendar__day-picker__button--range-end {
-    @apply bg-primary-700 rounded-r-md rounded-l-none;
+  .GeckoUICalendar__day-picker__button-text--partial-range {
+    @apply text-primary-700;
   }
 
   .GeckoUICalendar__month-picker {

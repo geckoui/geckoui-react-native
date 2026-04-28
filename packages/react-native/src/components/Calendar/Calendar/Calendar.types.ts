@@ -52,7 +52,6 @@ export interface CalendarRangeModeProps extends BaseCalendarProps {
   mode: 'range';
   selectedRange?: DateRange;
   onSelectRange?: (range: DateRange | null) => void;
-  numberOfMonths?: 1 | 2;
 }
 
 export type CalendarProps = CalendarSingleModeProps | CalendarRangeModeProps;

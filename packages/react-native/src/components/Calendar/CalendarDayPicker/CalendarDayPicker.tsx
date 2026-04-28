@@ -12,6 +12,9 @@ import {
 import { CalendarHeader } from '../CalendarHeader/CalendarHeader';
 import type { CalendarDayPickerProps } from './CalendarDayPicker.types';
 
+const formatDate = (year: number, month: number, day: number) =>
+  `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
 export const CalendarDayPicker = (
   props: CalendarDayPickerProps,
 ): React.ReactElement => {
@@ -30,6 +33,21 @@ export const CalendarDayPicker = (
   const { months } = generateMonthNames();
   const dates = generateCalendarDates(activeMonth, activeYear);
   const isRangeMode = mode === 'range';
+
+  const selectedRange = (
+    props as {
+      selectedRange?: { from: string | null; to?: string | null };
+    }
+  ).selectedRange;
+
+  const normalizedRange = (() => {
+    if (!isRangeMode || !selectedRange) return null;
+    const needsSwap = shouldSwapDates(selectedRange.from, selectedRange.to);
+    return {
+      from: needsSwap ? (selectedRange.to ?? null) : selectedRange.from,
+      to: needsSwap ? selectedRange.from : (selectedRange.to ?? null),
+    };
+  })();
 
   const handleDateClick = (date: string) => {
     if (isRangeMode) {
@@ -62,108 +80,133 @@ export const CalendarDayPicker = (
         ))}
       </View>
       <View className="GeckoUICalendar__day-picker">
-        {weeks.map((week, weekIndex) => (
-          <View key={weekIndex} className="GeckoUICalendar__day-picker-row">
-            {week.map((date, dayIndex) => {
-              const isActiveMonth = activeMonth === date.month;
+        {weeks.map((week, weekIndex) => {
+          let firstRangeIdx = -1;
+          let lastRangeIdx = -1;
+          let rangeStartInRow = false;
+          let rangeEndInRow = false;
 
-              if (isRangeMode && !isActiveMonth) {
-                return (
-                  <View
-                    key={dayIndex}
-                    className="GeckoUICalendar__day-picker__button"
-                  />
+          if (normalizedRange?.from && normalizedRange.to) {
+            week.forEach((date, idx) => {
+              const formatted = formatDate(date.year, date.month, date.day);
+              if (
+                !isDateInRange(formatted, {
+                  from: normalizedRange.from,
+                  to: normalizedRange.to,
+                })
+              )
+                return;
+              if (firstRangeIdx === -1) firstRangeIdx = idx;
+              lastRangeIdx = idx;
+              if (formatted === normalizedRange.from) rangeStartInRow = true;
+              if (formatted === normalizedRange.to) rangeEndInRow = true;
+            });
+          }
+
+          const hasRange = firstRangeIdx >= 0;
+          const cornerRadius = 6; // matches rounded-md
+
+          return (
+            <View key={weekIndex} className="GeckoUICalendar__day-picker-row">
+              {hasRange && (
+                <View
+                  className="GeckoUICalendar__day-picker__range-underlay"
+                  style={{
+                    left: `${(firstRangeIdx * 100) / 7}%`,
+                    width: `${((lastRangeIdx - firstRangeIdx + 1) * 100) / 7}%`,
+                    borderTopLeftRadius: rangeStartInRow ? cornerRadius : 0,
+                    borderBottomLeftRadius: rangeStartInRow ? cornerRadius : 0,
+                    borderTopRightRadius: rangeEndInRow ? cornerRadius : 0,
+                    borderBottomRightRadius: rangeEndInRow ? cornerRadius : 0,
+                  }}
+                />
+              )}
+              {week.map((date, dayIndex) => {
+                const isActiveMonth = activeMonth === date.month;
+
+                const formattedDate = formatDate(
+                  date.year,
+                  date.month,
+                  date.day,
                 );
-              }
+                const isToday = formattedDate === today;
+                const isSelected =
+                  !isRangeMode &&
+                  formattedDate ===
+                    (props as { selectedDate?: string | null }).selectedDate;
 
-              const formattedDate = `${date.year}-${String(date.month + 1).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`;
-              const isToday = formattedDate === today;
-              const isSelected =
-                !isRangeMode &&
-                formattedDate ===
-                  (props as { selectedDate?: string | null }).selectedDate;
+                let isRangeStart = false;
+                let isRangeEnd = false;
+                let isInRange = false;
+                let isPartialRange = false;
 
-              let isRangeStart = false;
-              let isRangeEnd = false;
-              let isInRange = false;
-
-              if (isRangeMode && isActiveMonth) {
-                const selectedRange = (
-                  props as {
-                    selectedRange?: { from: string | null; to?: string | null };
-                  }
-                ).selectedRange;
-                if (selectedRange) {
-                  const needsSwap = shouldSwapDates(
-                    selectedRange.from,
-                    selectedRange.to,
-                  );
-                  const normalizedFrom = needsSwap
-                    ? selectedRange.to
-                    : selectedRange.from;
-                  const normalizedTo = needsSwap
-                    ? selectedRange.from
-                    : selectedRange.to;
-                  isRangeStart = formattedDate === normalizedFrom;
-                  isRangeEnd = normalizedTo
-                    ? formattedDate === normalizedTo
-                    : false;
-                  if (normalizedFrom && normalizedTo) {
+                if (isRangeMode && normalizedRange?.from) {
+                  if (normalizedRange.to) {
+                    isRangeStart = formattedDate === normalizedRange.from;
+                    isRangeEnd = formattedDate === normalizedRange.to;
                     isInRange = isDateInRange(formattedDate, {
-                      from: normalizedFrom,
-                      to: normalizedTo,
+                      from: normalizedRange.from,
+                      to: normalizedRange.to,
                     });
+                  } else {
+                    isPartialRange = formattedDate === normalizedRange.from;
                   }
                 }
-              }
 
-              const isDisable = disableDate?.(formattedDate);
-              const isHighlighted =
-                isSelected || isRangeStart || isRangeEnd || isInRange;
+                const isDisable = disableDate?.(formattedDate);
+                const isHighlighted =
+                  isSelected ||
+                  isRangeStart ||
+                  isRangeEnd ||
+                  isInRange ||
+                  isPartialRange;
 
-              return (
-                <Pressable
-                  key={dayIndex}
-                  disabled={!!isDisable}
-                  onPress={() => handleDateClick(formattedDate)}
-                  className={twMerge(
-                    'GeckoUICalendar__day-picker__button',
-                    isSelected &&
-                      'GeckoUICalendar__day-picker__button--selected',
-                    isRangeStart &&
-                      'GeckoUICalendar__day-picker__button--range-start',
-                    isRangeEnd &&
-                      'GeckoUICalendar__day-picker__button--range-end',
-                    isInRange &&
-                      'GeckoUICalendar__day-picker__button--in-range',
-                    !isActiveMonth && 'opacity-40',
-                    isDisable && 'opacity-30',
-                  )}
-                >
-                  {renderDayCell ? (
-                    renderDayCell({
-                      ...date,
-                      date: formattedDate,
-                      isDisabled: !!isDisable,
-                      isSelected: isHighlighted,
-                      isFocusedMonth: isActiveMonth,
-                    })
-                  ) : (
-                    <Text
-                      className={twMerge(
-                        'GeckoUICalendar__day-picker__button-text',
-                        isToday && 'text-primary-600',
-                        isHighlighted && 'text-text-on-primary',
-                      )}
-                    >
-                      {date.day}
-                    </Text>
-                  )}
-                </Pressable>
-              );
-            })}
-          </View>
-        ))}
+                return (
+                  <Pressable
+                    key={dayIndex}
+                    disabled={!!isDisable}
+                    onPress={() => handleDateClick(formattedDate)}
+                    className={twMerge(
+                      'GeckoUICalendar__day-picker__button',
+                      isSelected &&
+                        'GeckoUICalendar__day-picker__button--selected',
+                      isPartialRange &&
+                        'GeckoUICalendar__day-picker__button--partial-range',
+                      !isActiveMonth && 'opacity-40',
+                      isDisable && 'opacity-30',
+                    )}
+                  >
+                    {renderDayCell ? (
+                      renderDayCell({
+                        ...date,
+                        date: formattedDate,
+                        isDisabled: !!isDisable,
+                        isSelected: isHighlighted,
+                        isFocusedMonth: isActiveMonth,
+                      })
+                    ) : (
+                      <Text
+                        className={twMerge(
+                          'GeckoUICalendar__day-picker__button-text',
+                          isToday && 'text-primary-600',
+                          (isSelected ||
+                            isRangeStart ||
+                            isRangeEnd ||
+                            isInRange) &&
+                            'text-text-on-primary',
+                          isPartialRange &&
+                            'GeckoUICalendar__day-picker__button-text--partial-range',
+                        )}
+                      >
+                        {date.day}
+                      </Text>
+                    )}
+                  </Pressable>
+                );
+              })}
+            </View>
+          );
+        })}
       </View>
     </>
   );
