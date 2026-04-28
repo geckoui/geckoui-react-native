@@ -1,0 +1,21 @@
+@layer components {
+  .GeckoUISelectMenu__overlay {
+    @apply absolute inset-0 z-[1000];
+  }
+
+  .GeckoUISelectMenu__backdrop {
+    @apply absolute inset-0 bg-black/40;
+  }
+
+  .GeckoUISelectMenu__container {
+    @apply flex-1 justify-end;
+  }
+
+  .GeckoUISelectMenu {
+    @apply bg-surface-primary rounded-t-xl pt-3;
+  }
+
+  .GeckoUISelectMenu__items {
+    @apply px-2;
+  }
+}

@@ -1,0 +1,10 @@
+@layer components {
+  .GeckoUISelectDropdownSearch__wrapper {
+    @apply px-2 mb-2;
+  }
+
+  .GeckoUISelectDropdownSearch__icon {
+    @apply text-text-tertiary;
+    font-size: 30px;
+  }
+}

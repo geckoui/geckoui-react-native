@@ -1,0 +1,5 @@
+@layer components {
+  .GeckoUISelect {
+    @apply w-full;
+  }
+}
