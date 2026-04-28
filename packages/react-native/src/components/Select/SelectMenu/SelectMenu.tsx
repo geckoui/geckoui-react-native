@@ -18,10 +18,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { twMerge } from 'tailwind-merge';
 
 import { SelectContext, useSelect } from '../Select.context';
-import { isHideSelectOption, isSelectEmpty } from '../Select.utils';
+import {
+  isHideSelectOption,
+  isSelectEmpty,
+  isSelectTrigger,
+} from '../Select.utils';
 import { SelectDropdownSearch } from '../SelectDropdownSearch';
 import { SelectEmpty } from '../SelectEmpty';
-import { SelectOption } from '../SelectOption';
+import type { SelectOptionProps } from '../SelectOption/SelectOption.types';
 import type { SelectContextProps } from '../Select/Select.types';
 import { createSelectMenuSlot, setSelectMenuNode } from './SelectMenuHost';
 import type { SelectMenuProps } from './SelectMenu.types';
@@ -34,7 +38,7 @@ const SelectMenu = ({
   style,
 }: SelectMenuProps): ReactNode => {
   const ctx = useSelect();
-  const { open, closeMenu, filterable, options, keyword, isEmpty } = ctx;
+  const { open, closeMenu, filterable, keyword, isEmpty } = ctx;
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [slotId] = useState(() => createSelectMenuSlot());
   const insets = useSafeAreaInsets();
@@ -83,24 +87,40 @@ const SelectMenu = ({
 
   const showSearch = filterable || !!customSearch;
 
-  const visibleOptions = useMemo(
-    () =>
-      options.filter(
-        (opt) =>
-          !isHideSelectOption({
-            keyword: keyword ?? '',
-            label: opt.label,
-            visibility: opt.visibility,
+  const items = useMemo(() => {
+    const arr: ReactElement[] = [];
+    Children.forEach(children, (child) => {
+      if (!React.isValidElement(child)) return;
+      const displayName = (child.type as { displayName?: string })?.displayName;
+      if (displayName === 'SelectDropdownSearch') return;
+      if (displayName === 'SelectEmpty') return;
+      if (isSelectTrigger(child)) return;
+      if (displayName === 'SelectOption') {
+        const props = child.props as SelectOptionProps<unknown>;
+        if (
+          isHideSelectOption({
+            keyword,
+            label: props.label,
+            visibility: props.visibility,
             isEmpty,
-          }),
-      ),
-    [options, keyword, isEmpty],
-  );
+          })
+        ) {
+          return;
+        }
+      }
+      arr.push(child as ReactElement);
+    });
+    return arr;
+  }, [children, keyword, isEmpty]);
 
   const renderItem = useCallback(
-    ({ item }: { item: (typeof visibleOptions)[number] }) => (
-      <SelectOption {...item.props} value={item.value} label={item.label} />
-    ),
+    ({ item }: { item: ReactElement }) => item,
+    [],
+  );
+
+  const keyExtractor = useCallback(
+    (item: ReactElement, index: number) =>
+      item.key != null ? `${index}-${item.key}` : `${index}`,
     [],
   );
 
@@ -142,12 +162,10 @@ const SelectMenu = ({
                   paddingBottom: 16 + (isKeyboardOpen ? 16 : insets.bottom),
                   gap: 2,
                 }}
-                data={visibleOptions}
-                keyExtractor={(item, index) =>
-                  `${index}-${JSON.stringify(item.value)}`
-                }
                 keyboardShouldPersistTaps="always"
                 keyboardDismissMode="none"
+                data={items}
+                keyExtractor={keyExtractor}
                 renderItem={renderItem}
                 ListEmptyComponent={customEmpty ?? <SelectEmpty />}
               />
@@ -165,8 +183,9 @@ const SelectMenu = ({
     showSearch,
     customSearch,
     customEmpty,
-    visibleOptions,
+    items,
     renderItem,
+    keyExtractor,
     closeMenu,
     keyboardHeight,
     isKeyboardOpen,
