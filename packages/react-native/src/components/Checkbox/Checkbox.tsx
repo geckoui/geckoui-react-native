@@ -23,6 +23,7 @@ export const Checkbox = ({
         disabled: !!disabled,
       }}
       disabled={disabled}
+      hitSlop={12}
       onPress={() => onChange?.(checked !== true)}
       className={twMerge(
         'GeckoUICheckbox',

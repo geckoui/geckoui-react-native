@@ -16,6 +16,7 @@ export const Radio = ({
     accessibilityRole="radio"
     accessibilityState={{ checked, disabled: !!disabled }}
     disabled={disabled}
+    hitSlop={12}
     onPress={() => onChange?.(!checked)}
     className={twMerge(
       'GeckoUIRadio',

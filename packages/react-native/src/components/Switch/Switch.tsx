@@ -64,6 +64,7 @@ const SwitchImpl = ({
       accessibilityRole="switch"
       accessibilityState={{ checked: value, disabled: !!disabled }}
       disabled={disabled}
+      hitSlop={12}
       onPress={() => onChange?.(!value)}
       className={twMerge(
         trackCva({ size, on: value, disabled: !!disabled }),
