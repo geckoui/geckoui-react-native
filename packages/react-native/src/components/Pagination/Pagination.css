@@ -12,7 +12,7 @@
   }
 
   .GeckoUIPagination__arrow-icon {
-    @apply text-text-tertiary text-lg font-medium;
+    @apply text-text-primary text-lg font-medium;
   }
 
   .GeckoUIPagination__page-button {
@@ -24,7 +24,7 @@
   }
 
   .GeckoUIPagination__page-button-text {
-    @apply text-text-tertiary text-sm font-medium;
+    @apply text-text-primary text-sm font-medium;
   }
 
   .GeckoUIPagination__page-button-text--active {
