@@ -16,7 +16,7 @@
   }
 
   .GeckoUICalendar__header__title-text {
-    @apply font-bold text-text-primary text-base;
+    @apply text-text-primary text-base;
   }
 
   .GeckoUICalendar__header__arrow-button {
