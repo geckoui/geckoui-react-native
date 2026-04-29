@@ -21,7 +21,7 @@
   .GeckoUIAlert__icon--warning { @apply bg-orange-500; }
   .GeckoUIAlert__icon--info { @apply bg-blue-500; }
   .GeckoUIAlert__icon--success { @apply bg-green-500; }
-  .GeckoUIAlert__icon--default { @apply bg-text-primary; }
+  .GeckoUIAlert__icon--default { background-color: #737373; }
 
   .GeckoUIAlert__icon-glyph {
     @apply text-[10px] font-bold text-text-on-primary leading-none;

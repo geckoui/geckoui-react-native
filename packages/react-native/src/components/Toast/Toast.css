@@ -8,7 +8,7 @@
   }
 
   .GeckoUIToast__icon--default {
-    background-color: var(--color-text-primary);
+    background-color: #737373;
   }
 
   .GeckoUIToast__icon--success {
