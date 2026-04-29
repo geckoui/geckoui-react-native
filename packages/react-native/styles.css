@@ -14,6 +14,7 @@
 @import "./src/components/ConfirmDialog/ConfirmDialog.css";
 @import "./src/components/Drawer/Drawer.css";
 @import "./src/components/Toast/Toast.css";
+@import "./src/components/Tooltip/Tooltip.css";
 @import "./src/components/OTPInput/OTPInput.css";
 @import "./src/components/Pagination/Pagination.css";
 @import "./src/components/Calendar/Calendar.css";

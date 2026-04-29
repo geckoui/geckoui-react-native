@@ -78,6 +78,12 @@ export type {
   ToastInstance,
   ToastHostProps,
 } from './components/Toast';
+export { Tooltip, TooltipHost } from './components/Tooltip';
+export type {
+  TooltipProps,
+  TooltipPlacement,
+  TooltipAnchor,
+} from './components/Tooltip';
 export { GeckoUIPortal } from './components/GeckoUIPortal';
 export {
   Menu,

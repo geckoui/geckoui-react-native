@@ -4,6 +4,7 @@ import { DialogHost } from '../Dialog/Dialog';
 import { DrawerHost } from '../Drawer/Drawer';
 import { SelectMenuHost } from '../Select/SelectMenu/SelectMenuHost';
 import { ToastHost } from '../Toast/Toast';
+import { TooltipHost } from '../Tooltip/TooltipHost';
 
 export const GeckoUIPortal = (): React.ReactElement => (
   <>
@@ -11,6 +12,7 @@ export const GeckoUIPortal = (): React.ReactElement => (
     <DrawerHost />
     <SelectMenuHost />
     <ToastHost />
+    <TooltipHost />
   </>
 );
 
