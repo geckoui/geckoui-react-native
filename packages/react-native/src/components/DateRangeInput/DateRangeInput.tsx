@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
@@ -9,6 +9,11 @@ import { Dialog } from '../Dialog';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer/DynamicComponentRenderer';
 import type { DateRangeInputProps } from './DateRangeInput.types';
 import { formatRangeForDisplay } from './DateRangeInput.utils';
+
+// Hold the dialog open briefly after the second date is picked so the user sees the
+// final range bar settle BEFORE the dialog scale-out begins. The range underlay is
+// percentage-positioned, so it shimmies if it re-layouts while the dialog is shrinking.
+const COMPLETION_PAUSE_MS = 100;
 
 interface RangePickerProps {
   initialValue?: DateRange | null;
@@ -24,14 +29,29 @@ const RangePicker = ({
   onComplete,
 }: RangePickerProps): React.ReactElement => {
   const [range, setRange] = useState<DateRange | null>(initialValue ?? null);
+  const completingRef = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
   return (
     <Calendar
       className={className}
       mode="range"
       selectedRange={range ?? undefined}
       onSelectRange={(r) => {
+        if (completingRef.current) return;
         setRange(r);
-        if (r?.from && r.to) onComplete(r);
+        if (r?.from && r.to) {
+          completingRef.current = true;
+          timerRef.current = setTimeout(() => {
+            onComplete(r);
+          }, COMPLETION_PAUSE_MS);
+        }
       }}
       disableDate={disableDate}
     />
