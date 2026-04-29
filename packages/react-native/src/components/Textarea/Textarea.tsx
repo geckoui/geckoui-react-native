@@ -4,7 +4,8 @@ import { twMerge } from 'tailwind-merge';
 
 import type { TextareaProps } from './Textarea.types';
 
-const LINE_HEIGHT = 20;
+const LINE_HEIGHT = 22;
+const VERTICAL_PADDING = 16;
 
 export const Textarea = ({
   rows = 2,
@@ -12,7 +13,7 @@ export const Textarea = ({
   style,
   ...rest
 }: TextareaProps): React.ReactElement => {
-  const height = rows * LINE_HEIGHT + 12;
+  const height = rows * LINE_HEIGHT + VERTICAL_PADDING;
 
   return (
     <TextInput
