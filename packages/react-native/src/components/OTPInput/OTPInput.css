@@ -1,6 +1,6 @@
 @layer components {
   .GeckoUIOTPInput {
-    @apply flex-row gap-2 justify-center;
+    @apply relative flex-row gap-2 justify-center;
   }
 
   .GeckoUIOTPInput--disabled {
@@ -8,19 +8,27 @@
   }
 
   .GeckoUIOTPInput__cell {
-    @apply h-14 items-center justify-center aspect-square;
+    @apply h-14 items-center justify-center aspect-square rounded-lg border border-border-secondary bg-surface-primary;
+  }
+
+  .GeckoUIOTPInput__cell--focused {
+    @apply border-primary-400;
+  }
+
+  .GeckoUIOTPInput__cell--disabled {
+    @apply bg-surface-disabled;
+  }
+
+  .GeckoUIOTPInput__cell-text {
+    @apply text-text-primary;
+    font-size: 18px;
+  }
+
+  .GeckoUIOTPInput__cell-text--placeholder {
+    @apply text-text-disabled;
   }
 
   .GeckoUIOTPInput__input {
-    @apply w-full h-full rounded-lg border border-border-secondary bg-surface-primary text-center text-text-primary p-0;
     font-size: 16px;
-  }
-
-  .GeckoUIOTPInput__input--focused {
-    @apply border-primary-300;
-  }
-
-  .GeckoUIOTPInput__input--disabled {
-    @apply bg-surface-disabled text-text-disabled;
   }
 }

@@ -2,11 +2,7 @@ import type React from 'react';
 import { useRef, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
-import type {
-  NativeSyntheticEvent,
-  TextInputKeyPressEventData,
-} from 'react-native';
-import { TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import type { OTPInputProps } from './OTPInput.types';
@@ -21,14 +17,14 @@ const containerCva = cva('GeckoUIOTPInput', {
   defaultVariants: { disabled: false },
 });
 
-const inputCva = cva('GeckoUIOTPInput__input', {
+const cellCva = cva('GeckoUIOTPInput__cell', {
   variants: {
     focused: {
-      true: 'GeckoUIOTPInput__input--focused',
+      true: 'GeckoUIOTPInput__cell--focused',
       false: '',
     },
     disabled: {
-      true: 'GeckoUIOTPInput__input--disabled',
+      true: 'GeckoUIOTPInput__cell--disabled',
       false: '',
     },
   },
@@ -50,80 +46,83 @@ const OTPInputImpl = ({
   length = 6,
   disabled,
 }: OTPInputProps): React.ReactElement => {
-  const inputRefs = useRef<(TextInput | null)[]>([]);
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const inputRef = useRef<TextInput | null>(null);
+  const [focused, setFocused] = useState(false);
 
-  const focusAt = (index: number) => {
-    inputRefs.current[Math.min(Math.max(index, 0), length - 1)]?.focus();
-  };
-
-  const handleChangeText = (text: string, index: number) => {
-    const filtered = numberOnly ? text.replace(/\D/g, '') : text;
-    const char = filtered.slice(-1);
-    if (!char) return;
-    const chars = value.split('');
-    chars[index] = char;
-    const newValue = chars.join('').substring(0, length);
-    onChange(newValue);
-    if (index < length - 1) focusAt(index + 1);
-    if (newValue.length === length) onOTPComplete?.(newValue);
-  };
-
-  const handleKeyPress = (
-    event: NativeSyntheticEvent<TextInputKeyPressEventData>,
-    index: number,
-  ) => {
-    if (event.nativeEvent.key === 'Backspace') {
-      if (!value[index] && index > 0) {
-        onChange(value.slice(0, -1));
-        focusAt(index - 1);
-      } else if (value[index]) {
-        const chars = value.split('');
-        chars[index] = '';
-        onChange(chars.join(''));
-      }
+  const handleChangeText = (text: string) => {
+    const cleaned = (numberOnly ? text.replace(/\D/g, '') : text).slice(
+      0,
+      length,
+    );
+    onChange(cleaned);
+    if (cleaned.length === length) {
+      onOTPComplete?.(cleaned);
     }
   };
 
+  const focusInput = () => {
+    if (disabled) return;
+    inputRef.current?.focus();
+  };
+
+  const cursorIndex = Math.min(value.length, length - 1);
+
   return (
-    <View
+    <Pressable
       className={twMerge(containerCva({ disabled: !!disabled }), className)}
       style={style}
+      onPress={focusInput}
+      disabled={disabled}
     >
-      {Array.from({ length }).map((_, index) => (
-        <View key={index} className="GeckoUIOTPInput__cell" style={cellStyle}>
-          <TextInput
-            ref={(el) => {
-              inputRefs.current[index] = el;
-            }}
-            className={inputCva({
-              focused: focusedIndex === index,
-              disabled: !!disabled,
-            })}
-            style={inputStyle}
-            value={value[index] ?? ''}
-            onChangeText={(text) => handleChangeText(text, index)}
-            onKeyPress={(event) => handleKeyPress(event, index)}
-            onFocus={() => {
-              if (index > value.length) {
-                focusAt(value.length);
-              } else {
-                setFocusedIndex(index);
-              }
-            }}
-            onBlur={(e) => {
-              setFocusedIndex(null);
-              onBlurProp?.(e);
-            }}
-            editable={!disabled}
-            keyboardType={numberOnly ? 'numeric' : 'default'}
-            maxLength={1}
-            placeholder="•"
-            textAlign="center"
-          />
-        </View>
-      ))}
-    </View>
+      {Array.from({ length }).map((_, index) => {
+        const char = value[index] ?? '';
+        const isCurrent = focused && index === cursorIndex;
+        return (
+          <View
+            key={index}
+            className={twMerge(
+              cellCva({ focused: isCurrent, disabled: !!disabled }),
+              _cellClassName,
+            )}
+            style={cellStyle}
+          >
+            <Text
+              className={twMerge(
+                'GeckoUIOTPInput__cell-text',
+                !char && 'GeckoUIOTPInput__cell-text--placeholder',
+              )}
+            >
+              {char || '•'}
+            </Text>
+          </View>
+        );
+      })}
+      <TextInput
+        ref={inputRef}
+        className="GeckoUIOTPInput__input"
+        style={[
+          StyleSheet.absoluteFillObject,
+          { color: 'transparent' },
+          inputStyle,
+        ]}
+        value={value}
+        onChangeText={handleChangeText}
+        onFocus={() => setFocused(true)}
+        onBlur={(e) => {
+          setFocused(false);
+          onBlurProp?.(e);
+        }}
+        keyboardType={numberOnly ? 'number-pad' : 'default'}
+        textContentType="oneTimeCode"
+        autoComplete="sms-otp"
+        maxLength={length}
+        editable={!disabled}
+        caretHidden
+        selectionColor="transparent"
+        autoCorrect={false}
+        autoCapitalize="none"
+      />
+    </Pressable>
   );
 };
 
