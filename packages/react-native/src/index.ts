@@ -69,6 +69,15 @@ export type {
 } from './components/ConfirmDialog';
 export { Drawer, DrawerHost } from './components/Drawer';
 export type { DrawerProps, DrawerPlacementMap } from './components/Drawer';
+export { Toast, ToastHost } from './components/Toast';
+export type {
+  ToastVariant,
+  ToastPosition,
+  ToastAction,
+  ToastOptions,
+  ToastInstance,
+  ToastHostProps,
+} from './components/Toast';
 export { GeckoUIPortal } from './components/GeckoUIPortal';
 export {
   Menu,

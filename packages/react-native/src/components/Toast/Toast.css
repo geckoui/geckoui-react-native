@@ -1,0 +1,61 @@
+@layer components {
+  .GeckoUIToast {
+    @apply flex-row items-center gap-3 mx-3 mb-2 rounded-lg border border-border-primary bg-surface-primary px-4 py-3;
+  }
+
+  .GeckoUIToast__icon {
+    @apply h-5 w-5 rounded-full items-center justify-center;
+  }
+
+  .GeckoUIToast__icon--default {
+    background-color: var(--color-text-primary);
+  }
+
+  .GeckoUIToast__icon--success {
+    background-color: #22c55e;
+  }
+
+  .GeckoUIToast__icon--error {
+    background-color: #ef4444;
+  }
+
+  .GeckoUIToast__icon--warning {
+    background-color: #f97316;
+  }
+
+  .GeckoUIToast__icon--info {
+    background-color: #3b82f6;
+  }
+
+  .GeckoUIToast__icon-glyph {
+    @apply text-text-on-primary text-xs font-bold leading-none;
+  }
+
+  .GeckoUIToast__body {
+    @apply flex-1;
+  }
+
+  .GeckoUIToast__title {
+    @apply text-text-primary text-sm font-medium;
+  }
+
+  .GeckoUIToast__description {
+    @apply text-text-secondary text-xs mt-0.5;
+  }
+
+  .GeckoUIToast__action {
+    @apply px-3 py-1 rounded-md;
+  }
+
+  .GeckoUIToast__action-label {
+    @apply text-primary-600 text-sm font-semibold;
+  }
+
+  .GeckoUIToast__dismiss {
+    @apply h-6 w-6 items-center justify-center;
+  }
+
+  .GeckoUIToast__dismiss-icon {
+    @apply text-text-tertiary text-base leading-none;
+  }
+}
