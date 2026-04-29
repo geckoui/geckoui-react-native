@@ -55,6 +55,11 @@ export { Textarea } from './components/Textarea';
 export type { TextareaProps } from './components/Textarea';
 export { DateInput, formatDateForDisplay } from './components/DateInput';
 export type { DateInputProps, DateFormat } from './components/DateInput';
+export {
+  DateRangeInput,
+  formatRangeForDisplay,
+} from './components/DateRangeInput';
+export type { DateRangeInputProps } from './components/DateRangeInput';
 export { Dialog, DialogHost } from './components/Dialog';
 export type { DialogContentProps, DialogOptions } from './components/Dialog';
 export { ConfirmDialog } from './components/ConfirmDialog';

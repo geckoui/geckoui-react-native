@@ -32,7 +32,8 @@
   }
 
   .GeckoUISelectButton__arrow {
-    @apply text-text-tertiary text-sm;
+    @apply text-text-tertiary leading-none;
+    font-size: 24px;
   }
 
   .GeckoUISelectButton__multiselected-chip {

@@ -17,6 +17,7 @@
 @import "./src/components/Pagination/Pagination.css";
 @import "./src/components/Calendar/Calendar.css";
 @import "./src/components/DateInput/DateInput.css";
+@import "./src/components/DateRangeInput/DateRangeInput.css";
 @import "./src/components/Menu/Menu/Menu.css";
 @import "./src/components/Menu/MenuButton/MenuButton.css";
 @import "./src/components/Menu/MenuItem/MenuItem.css";
