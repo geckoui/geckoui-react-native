@@ -12,10 +12,10 @@
   }
 
   .GeckoUISelectOption__label {
-    @apply text-text-primary text-sm flex-1;
+    @apply text-text-primary text-base flex-1;
   }
 
   .GeckoUISelectOption__check-icon {
-    @apply text-primary-600 text-sm font-semibold;
+    @apply text-primary-600 text-base font-semibold;
   }
 }

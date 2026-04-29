@@ -1,6 +1,6 @@
 @layer components {
   .GeckoUISelectButton {
-    @apply flex-row items-center gap-2 w-full rounded-md border border-border-secondary px-3 min-h-[38px] py-1 bg-surface-primary active:border-primary-400;
+    @apply min-h-12 flex-row items-center gap-2 w-full rounded-md border border-border-secondary px-3 py-1 bg-surface-primary active:border-primary-400;
   }
 
   .GeckoUISelectButton--disabled {
@@ -12,11 +12,11 @@
   }
 
   .GeckoUISelectButton__value {
-    @apply text-text-primary text-sm;
+    @apply text-text-primary text-base;
   }
 
   .GeckoUISelectButton__placeholder {
-    @apply text-text-secondary text-sm;
+    @apply text-text-secondary text-base;
   }
 
   .GeckoUISelectButton__icons {
@@ -37,7 +37,7 @@
   }
 
   .GeckoUISelectButton__multiselected-chip {
-    @apply flex-row items-center gap-1 self-center rounded border border-border-secondary bg-surface-secondary px-2 py-1;
+    @apply flex-row items-center gap-1.5 self-center rounded border border-border-secondary bg-surface-secondary pl-2.5 pr-1.5 py-1.5;
   }
 
   .GeckoUISelectButton__multiselected-chip--disabled {
@@ -45,14 +45,14 @@
   }
 
   .GeckoUISelectButton__multiselected-chip__label {
-    @apply text-text-primary text-xs;
+    @apply text-text-primary text-sm;
   }
 
   .GeckoUISelectButton__multiselected-chip__clear-button {
-    @apply h-4 w-4 items-center justify-center rounded-sm;
+    @apply h-5 w-5 items-center justify-center rounded-sm;
   }
 
   .GeckoUISelectButton__multiselected-chip__clear-button__icon {
-    @apply text-text-secondary text-[10px];
+    @apply text-text-secondary text-xs;
   }
 }

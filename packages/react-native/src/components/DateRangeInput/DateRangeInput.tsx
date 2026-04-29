@@ -143,7 +143,7 @@ export const DateRangeInput = ({
           <Pressable
             className="GeckoUIDateRangeInput__clear-button"
             onPress={handleClear}
-            hitSlop={8}
+            hitSlop={12}
           >
             <Text className="GeckoUIDateRangeInput__clear-icon">✕</Text>
           </Pressable>

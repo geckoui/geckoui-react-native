@@ -4,13 +4,11 @@
   }
 
   .GeckoUITooltip {
-    @apply rounded-md px-3 py-2;
-    background-color: #1a1a1a;
+    @apply rounded-md px-3 py-2 bg-tooltip-bg;
   }
 
   .GeckoUITooltip__text {
-    @apply text-sm leading-snug;
-    color: #f8f8f8;
+    @apply text-sm leading-snug text-tooltip-fg;
   }
 
   .GeckoUITooltip__arrow {
@@ -24,11 +22,11 @@
 
   .GeckoUITooltip__arrow--down {
     border-top-width: 6px;
-    border-top-color: #1a1a1a;
+    border-top-color: var(--color-tooltip-bg);
   }
 
   .GeckoUITooltip__arrow--up {
     border-bottom-width: 6px;
-    border-bottom-color: #1a1a1a;
+    border-bottom-color: var(--color-tooltip-bg);
   }
 }

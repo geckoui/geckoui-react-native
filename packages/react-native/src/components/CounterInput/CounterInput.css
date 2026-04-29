@@ -28,11 +28,11 @@
   }
 
   .GeckoUICounterInput__button--md {
-    @apply h-10 w-10;
+    @apply h-12 w-12;
   }
 
   .GeckoUICounterInput__button--lg {
-    @apply h-12 w-12;
+    @apply h-14 w-14;
   }
 
   .GeckoUICounterInput__input {
@@ -53,13 +53,13 @@
   }
 
   .GeckoUICounterInput__input--md {
-    @apply h-10 w-16;
-    font-size: 14px;
+    @apply h-12 w-16;
+    font-size: 16px;
   }
 
   .GeckoUICounterInput__input--lg {
-    @apply h-12 w-20;
-    font-size: 16px;
+    @apply h-14 w-20;
+    font-size: 18px;
   }
 
   .GeckoUICounterInput__icon {

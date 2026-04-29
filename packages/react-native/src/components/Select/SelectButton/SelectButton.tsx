@@ -86,7 +86,7 @@ const SelectButton = ({ className }: SelectButtonProps): ReactNode => {
                 {!disabled && (
                   <Pressable
                     className="GeckoUISelectButton__multiselected-chip__clear-button"
-                    hitSlop={6}
+                    hitSlop={12}
                     onPress={(e) => {
                       e.stopPropagation();
                       handleChange(v as never);
@@ -120,7 +120,7 @@ const SelectButton = ({ className }: SelectButtonProps): ReactNode => {
           <Pressable
             className="GeckoUISelectButton__clear-button"
             onPress={handleClear}
-            hitSlop={8}
+            hitSlop={12}
           >
             <Text className="GeckoUISelectButton__clear-icon">✕</Text>
           </Pressable>

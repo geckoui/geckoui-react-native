@@ -3,10 +3,10 @@
     @apply rounded-lg border border-border-primary bg-surface-primary px-4 py-3 gap-0.5;
   }
 
-  .GeckoUIAlert--error { color: #ef4444; }
-  .GeckoUIAlert--warning { color: #f97316; }
-  .GeckoUIAlert--info { color: #3b82f6; }
-  .GeckoUIAlert--success { color: #22c55e; }
+  .GeckoUIAlert--error { color: var(--color-error); }
+  .GeckoUIAlert--warning { color: var(--color-warning); }
+  .GeckoUIAlert--info { color: var(--color-info); }
+  .GeckoUIAlert--success { color: var(--color-success); }
   .GeckoUIAlert--default { color: var(--color-text-primary); }
 
   .GeckoUIAlert__body {
@@ -17,10 +17,10 @@
     @apply h-4 w-4 rounded-full items-center justify-center;
   }
 
-  .GeckoUIAlert__icon--error { @apply bg-red-500; }
-  .GeckoUIAlert__icon--warning { @apply bg-orange-500; }
-  .GeckoUIAlert__icon--info { @apply bg-blue-500; }
-  .GeckoUIAlert__icon--success { @apply bg-green-500; }
+  .GeckoUIAlert__icon--error { @apply bg-error; }
+  .GeckoUIAlert__icon--warning { @apply bg-warning; }
+  .GeckoUIAlert__icon--info { @apply bg-info; }
+  .GeckoUIAlert__icon--success { @apply bg-success; }
   .GeckoUIAlert__icon--default { background-color: #737373; }
 
   .GeckoUIAlert__icon-glyph {
@@ -48,6 +48,6 @@
   }
 
   .GeckoUIAlert__description-text {
-    @apply text-xs text-text-secondary;
+    @apply text-sm text-text-secondary;
   }
 }

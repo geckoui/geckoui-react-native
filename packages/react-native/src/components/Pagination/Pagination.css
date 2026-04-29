@@ -4,7 +4,7 @@
   }
 
   .GeckoUIPagination__arrow {
-    @apply h-10 w-10 items-center justify-center rounded-md active:bg-surface-hover;
+    @apply h-11 w-11 items-center justify-center rounded-md active:bg-surface-hover;
   }
 
   .GeckoUIPagination__arrow--disabled {
@@ -16,7 +16,7 @@
   }
 
   .GeckoUIPagination__page-button {
-    @apply h-10 min-w-[40px] items-center justify-center rounded-md px-1 active:bg-surface-hover;
+    @apply h-11 min-w-[44px] items-center justify-center rounded-md px-1 active:bg-surface-hover;
   }
 
   .GeckoUIPagination__page-button--active {

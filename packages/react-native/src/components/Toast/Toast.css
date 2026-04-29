@@ -12,19 +12,19 @@
   }
 
   .GeckoUIToast__icon--success {
-    background-color: #22c55e;
+    @apply bg-success;
   }
 
   .GeckoUIToast__icon--error {
-    background-color: #ef4444;
+    @apply bg-error;
   }
 
   .GeckoUIToast__icon--warning {
-    background-color: #f97316;
+    @apply bg-warning;
   }
 
   .GeckoUIToast__icon--info {
-    background-color: #3b82f6;
+    @apply bg-info;
   }
 
   .GeckoUIToast__icon-glyph {
@@ -40,7 +40,7 @@
   }
 
   .GeckoUIToast__description {
-    @apply text-text-secondary text-xs mt-0.5;
+    @apply text-text-secondary text-sm mt-0.5;
   }
 
   .GeckoUIToast__action {

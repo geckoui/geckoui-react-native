@@ -89,6 +89,7 @@ export const Alert = ({
           accessibilityLabel="Dismiss"
           onPress={onRemove}
           className="GeckoUIAlert__remove"
+          hitSlop={12}
         >
           <Text className="GeckoUIAlert__remove-glyph">×</Text>
         </Pressable>

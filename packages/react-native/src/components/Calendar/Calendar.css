@@ -1,7 +1,6 @@
 @layer components {
   .GeckoUICalendar {
-    @apply border border-border-primary rounded-md px-3 py-4;
-    width: 320px;
+    @apply w-full border border-border-primary rounded-md px-3 py-4;
   }
 
   .GeckoUICalendar__header {
@@ -9,7 +8,7 @@
   }
 
   .GeckoUICalendar__header__title {
-    @apply flex-1 items-center justify-center rounded-md px-3 py-2.5;
+    @apply flex-1 items-center justify-center rounded-md px-3 py-3;
   }
 
   .GeckoUICalendar__header__title--clickable {
@@ -17,11 +16,11 @@
   }
 
   .GeckoUICalendar__header__title-text {
-    @apply font-bold text-text-primary text-sm;
+    @apply font-bold text-text-primary text-base;
   }
 
   .GeckoUICalendar__header__arrow-button {
-    @apply h-10 w-10 items-center justify-center rounded-md active:bg-surface-hover;
+    @apply h-12 w-12 items-center justify-center rounded-md active:bg-surface-hover;
   }
 
   .GeckoUICalendar__header__arrow-icon {

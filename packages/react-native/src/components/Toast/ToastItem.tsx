@@ -141,7 +141,7 @@ export const ToastItem = ({
               toast.action?.onPress();
               handleDismiss();
             }}
-            hitSlop={6}
+            hitSlop={12}
           >
             <Text className="GeckoUIToast__action-label">
               {toast.action.label}
@@ -152,7 +152,7 @@ export const ToastItem = ({
           <Pressable
             className="GeckoUIToast__dismiss"
             onPress={handleDismiss}
-            hitSlop={6}
+            hitSlop={12}
           >
             <Text className="GeckoUIToast__dismiss-icon">✕</Text>
           </Pressable>

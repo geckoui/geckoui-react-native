@@ -4,6 +4,6 @@
   }
 
   .GeckoUISelectEmpty__text {
-    @apply text-text-tertiary text-sm;
+    @apply text-text-tertiary text-base;
   }
 }

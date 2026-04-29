@@ -8,7 +8,7 @@
   }
 
   .GeckoUIDateInput {
-    @apply flex-row items-center gap-2 w-full rounded-md border border-border-secondary px-3 h-[38px] bg-surface-primary active:border-primary-400;
+    @apply h-12 flex-row items-center gap-2 w-full rounded-md border border-border-secondary px-3 bg-surface-primary active:border-primary-400;
   }
 
   .GeckoUIDateInput--disabled {
@@ -20,11 +20,11 @@
   }
 
   .GeckoUIDateInput__value {
-    @apply text-text-primary text-sm;
+    @apply text-text-primary text-base;
   }
 
   .GeckoUIDateInput__placeholder {
-    @apply text-text-secondary text-sm;
+    @apply text-text-secondary text-base;
   }
 
   .GeckoUIDateInput__icons {
