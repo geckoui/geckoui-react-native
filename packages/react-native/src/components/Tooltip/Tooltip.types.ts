@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { StyleProp, ViewStyle } from 'react-native';
+import type { PressableProps, StyleProp, ViewStyle } from 'react-native';
 
 export type TooltipPlacement = 'top' | 'bottom' | 'auto';
 
@@ -55,4 +55,7 @@ export interface TooltipProps {
   /** Class applied to the trigger wrapper Pressable (ignored when `triggerAsChild`). */
   className?: string;
   style?: StyleProp<ViewStyle>;
+
+  /** Hit slop applied to the trigger wrapper Pressable (ignored when `triggerAsChild`). */
+  hitSlop?: PressableProps['hitSlop'];
 }

@@ -28,6 +28,7 @@ export const Tooltip = ({
   contentStyle,
   className,
   style,
+  hitSlop,
 }: TooltipProps): React.ReactElement => {
   const triggerRef = useRef<View>(null);
   const idRef = useRef<number>(0);
@@ -128,6 +129,7 @@ export const Tooltip = ({
       className={twMerge('GeckoUITooltip__trigger', className)}
       style={style}
       disabled={disabled}
+      hitSlop={hitSlop}
       onPress={longPress ? undefined : toggle}
       onLongPress={longPress ? toggle : undefined}
     >
