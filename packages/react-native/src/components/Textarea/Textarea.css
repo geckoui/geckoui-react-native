@@ -1,6 +1,6 @@
 @layer components {
   .GeckoUITextarea {
-    @apply w-full rounded-md border border-border-secondary px-3 py-2 text-text-primary bg-surface-primary;
+    @apply w-full rounded-md border border-border-secondary px-3 py-2 text-text-primary bg-surface-primary placeholder:text-text-secondary;
     font-size: 16px;
   }
 }

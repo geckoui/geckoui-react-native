@@ -25,7 +25,7 @@
   }
 
   .GeckoUIOTPInput__cell-text--placeholder {
-    @apply text-text-disabled;
+    @apply text-text-tertiary;
   }
 
   .GeckoUIOTPInput__input {
