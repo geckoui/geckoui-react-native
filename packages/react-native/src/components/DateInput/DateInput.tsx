@@ -1,4 +1,5 @@
 import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
@@ -7,6 +8,52 @@ import { Dialog } from '../Dialog';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer/DynamicComponentRenderer';
 import type { DateInputProps } from './DateInput.types';
 import { formatDateForDisplay } from './DateInput.utils';
+
+// Hold the dialog open briefly after selection so the user sees the highlighted
+// cell settle BEFORE the dialog scale-out begins. Without this the close animation
+// starts on the same frame as the selection visual, which feels jarring.
+const COMPLETION_PAUSE_MS = 100;
+
+interface DatePickerProps {
+  initialValue?: string | null;
+  className?: string;
+  disableDate?: (date: string) => boolean;
+  onComplete: (date: string | null) => void;
+}
+
+const DatePicker = ({
+  initialValue,
+  className,
+  disableDate,
+  onComplete,
+}: DatePickerProps): React.ReactElement => {
+  const [selected, setSelected] = useState<string | null>(initialValue ?? null);
+  const completingRef = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  return (
+    <Calendar
+      className={className}
+      selectedDate={selected}
+      onSelectDate={(date) => {
+        if (completingRef.current) return;
+        const next = date || null;
+        setSelected(next);
+        completingRef.current = true;
+        timerRef.current = setTimeout(() => {
+          onComplete(next);
+        }, COMPLETION_PAUSE_MS);
+      }}
+      disableDate={disableDate}
+    />
+  );
+};
 
 export const DateInput = ({
   value,
@@ -34,14 +81,14 @@ export const DateInput = ({
     Dialog.show({
       className: twMerge('GeckoUIDateInput__dialog', dialogClassName),
       content: ({ dismiss }) => (
-        <Calendar
+        <DatePicker
+          initialValue={value}
           className={twMerge('GeckoUIDateInput__calendar', calendarClassName)}
-          selectedDate={value ?? null}
-          onSelectDate={(date) => {
-            onChange?.(date || null);
+          disableDate={disableDate}
+          onComplete={(date) => {
+            onChange?.(date);
             dismiss();
           }}
-          disableDate={disableDate}
         />
       ),
     });
