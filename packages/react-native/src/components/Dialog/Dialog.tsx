@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { Animated, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Animated, Modal, Pressable, StyleSheet } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import type { DialogOptions, DialogState } from './Dialog.types';
 
 let _setState: ((s: DialogState) => void) | null = null;
+let _animatedDismiss: (() => void) | null = null;
 
 const show = (options: DialogOptions) => {
   if (!_setState) {
@@ -18,7 +19,11 @@ const show = (options: DialogOptions) => {
 };
 
 const dismiss = () => {
-  _setState?.({ visible: false, options: null });
+  if (_animatedDismiss) {
+    _animatedDismiss();
+  } else {
+    _setState?.({ visible: false, options: null });
+  }
 };
 
 export function DialogHost(): React.ReactElement | null {
@@ -27,26 +32,51 @@ export function DialogHost(): React.ReactElement | null {
     options: null,
   });
   const scaleAnim = useRef(new Animated.Value(0.95)).current;
+  const opacityAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     _setState = setState;
+    _animatedDismiss = () => {
+      Animated.parallel([
+        Animated.timing(scaleAnim, {
+          toValue: 0.95,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacityAnim, {
+          toValue: 0,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        setState({ visible: false, options: null });
+      });
+    };
     return () => {
       _setState = null;
+      _animatedDismiss = null;
     };
-  }, [setState]);
+  }, [scaleAnim, opacityAnim]);
 
   useEffect(() => {
     if (state.visible) {
-      Animated.spring(scaleAnim, {
-        toValue: 1,
-        useNativeDriver: true,
-        tension: 120,
-        friction: 10,
-      }).start();
-    } else {
       scaleAnim.setValue(0.95);
+      opacityAnim.setValue(0);
+      Animated.parallel([
+        Animated.spring(scaleAnim, {
+          toValue: 1,
+          useNativeDriver: true,
+          tension: 120,
+          friction: 10,
+        }),
+        Animated.timing(opacityAnim, {
+          toValue: 1,
+          duration: 180,
+          useNativeDriver: true,
+        }),
+      ]).start();
     }
-  }, [state.visible]);
+  }, [state.visible, scaleAnim, opacityAnim]);
 
   if (!state.visible || !state.options) return null;
 
@@ -62,11 +92,11 @@ export function DialogHost(): React.ReactElement | null {
     <Modal
       visible
       transparent
-      animationType="fade"
+      animationType="none"
       statusBarTranslucent
       onRequestClose={dismissOnEsc ? dismiss : undefined}
     >
-      <View style={styles.overlay}>
+      <Animated.View style={[styles.overlay, { opacity: opacityAnim }]}>
         <Pressable
           style={StyleSheet.absoluteFillObject}
           onPress={dismissOnOutsideClick ? dismiss : undefined}
@@ -81,7 +111,7 @@ export function DialogHost(): React.ReactElement | null {
               : content) as ReactNode
           }
         </Animated.View>
-      </View>
+      </Animated.View>
     </Modal>
   );
 }
