@@ -12,8 +12,12 @@ export interface SwitchProps
   size?: keyof SwitchSizeMap;
   disabled?: boolean;
   className?: string;
+
   /** NativeWind classes for the inner thumb. */
   thumbClassName?: string;
+
   style?: StyleProp<ViewStyle>;
+
+  /** RN style applied to the inner thumb. */
   thumbStyle?: StyleProp<ViewStyle>;
 }

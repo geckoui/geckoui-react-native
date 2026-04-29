@@ -5,15 +5,33 @@ import type { SelectOptionConfig } from '../SelectOption/SelectOption.types';
 
 export interface BaseSelectProps {
   placeholder?: string;
+
+  /** Class applied to the outer wrapper around the trigger. */
   wrapperClassName?: string;
+
+  /** Style applied to the outer wrapper around the trigger. */
   wrapperStyle?: StyleProp<ViewStyle>;
+
+  /** Class applied to the bottom-sheet menu surface. */
   menuClassName?: string;
+
+  /** Style applied to the bottom-sheet menu surface. */
   menuStyle?: StyleProp<ViewStyle>;
+
   disabled?: boolean;
+
+  /** Show the search input above the option list. */
   filterable?: boolean;
+
+  /** Close the menu after a selection. Default `true` for single, `false` for multi. */
   closeMenuOnSelect?: boolean;
+
+  /** Show a clear (✕) button on the trigger when a value is selected. */
   clearable?: boolean;
+
+  /** Skip the default `<SelectEmpty>` UI when no options match the search. */
   hideDefaultEmptyUI?: boolean;
+
   prefix?: ReactNode;
   suffix?: ReactNode;
   placeholderClassName?: string;

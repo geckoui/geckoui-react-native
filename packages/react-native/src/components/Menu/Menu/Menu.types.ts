@@ -18,11 +18,18 @@ export interface MenuContextProps {
 }
 
 export interface MenuProps {
+  /** Default trigger button label. Ignored when `<MenuTrigger>` is provided. */
   label?: string;
+
   disabled?: boolean;
   className?: string;
   style?: StyleProp<ViewStyle>;
+
+  /** Class applied to the dropdown panel. */
   menuClassName?: string;
+
+  /** Class applied to the default trigger button (ignored when `<MenuTrigger>` is provided). */
   buttonClassName?: string;
+
   children?: ReactNode;
 }

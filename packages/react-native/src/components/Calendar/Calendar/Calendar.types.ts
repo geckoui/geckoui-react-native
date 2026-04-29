@@ -35,10 +35,16 @@ export enum CalendarType {
 }
 
 interface BaseCalendarProps {
+  /** Imperative handle for `moveTo(month, year)` and `clearSelection()`. */
   calendarRef?: Ref<CalendarRef>;
+
   style?: StyleProp<ViewStyle>;
   className?: string;
+
+  /** Return `true` to mark the date as unselectable (disables the cell). */
   disableDate?: (date: string) => boolean;
+
+  /** Custom renderer for individual day cells. Receives the date and its state. */
   renderDayCell?: (props: DayCellRenderProps) => ReactNode;
 }
 
@@ -51,6 +57,8 @@ export interface CalendarSingleModeProps extends BaseCalendarProps {
 export interface CalendarRangeModeProps extends BaseCalendarProps {
   mode: 'range';
   selectedRange?: DateRange;
+
+  /** Fired with `{ from, to: undefined }` after the first click, then `{ from, to }` after the second. */
   onSelectRange?: (range: DateRange | null) => void;
 }
 
