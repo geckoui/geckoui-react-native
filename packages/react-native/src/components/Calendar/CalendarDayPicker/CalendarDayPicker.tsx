@@ -172,8 +172,10 @@ export const CalendarDayPicker = (
                         'GeckoUICalendar__day-picker__button--selected',
                       isPartialRange &&
                         'GeckoUICalendar__day-picker__button--partial-range',
-                      !isActiveMonth && 'opacity-40',
-                      isDisable && 'opacity-30',
+                      !isActiveMonth &&
+                        'GeckoUICalendar__day-picker__button--prev-next',
+                      isDisable &&
+                        'GeckoUICalendar__day-picker__button--disabled',
                     )}
                   >
                     {renderDayCell ? (
@@ -188,12 +190,13 @@ export const CalendarDayPicker = (
                       <Text
                         className={twMerge(
                           'GeckoUICalendar__day-picker__button-text',
-                          isToday && 'text-primary-600',
+                          isToday &&
+                            'GeckoUICalendar__day-picker__button-text--today',
                           (isSelected ||
                             isRangeStart ||
                             isRangeEnd ||
                             isInRange) &&
-                            'text-text-on-primary',
+                            'GeckoUICalendar__day-picker__button-text--selected',
                           isPartialRange &&
                             'GeckoUICalendar__day-picker__button-text--partial-range',
                         )}

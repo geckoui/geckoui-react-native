@@ -67,6 +67,22 @@
     @apply bg-primary-200 rounded-md;
   }
 
+  .GeckoUICalendar__day-picker__button--prev-next {
+    @apply opacity-40;
+  }
+
+  .GeckoUICalendar__day-picker__button--disabled {
+    @apply opacity-30;
+  }
+
+  .GeckoUICalendar__day-picker__button-text--today {
+    @apply text-primary-600;
+  }
+
+  .GeckoUICalendar__day-picker__button-text--selected {
+    @apply text-text-on-primary;
+  }
+
   .GeckoUICalendar__day-picker__button-text--partial-range {
     @apply text-primary-700;
   }

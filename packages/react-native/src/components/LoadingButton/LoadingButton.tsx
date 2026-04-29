@@ -73,7 +73,7 @@ export const LoadingButton = ({
 
   return (
     <Button variant={variant} size={size} color={color} disabled {...rest}>
-      <View className="flex-row items-center gap-1.5">
+      <View className="GeckoUILoadingButton__row">
         {spinnerPosition === 'start' ? spinner : null}
         <DynamicComponentRenderer
           component={loadingText ?? children}

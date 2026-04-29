@@ -118,7 +118,7 @@ const CounterInputImpl = ({
       <Pressable
         className={twMerge(
           buttonCva({ size, action: 'decrement', focused }),
-          isAtMin && !disabled && 'opacity-50',
+          isAtMin && !disabled && 'GeckoUICounterInput__button--inactive',
         )}
         style={buttonStyle}
         onPress={handleDecrement}
@@ -144,7 +144,7 @@ const CounterInputImpl = ({
       <Pressable
         className={twMerge(
           buttonCva({ size, action: 'increment', focused }),
-          isAtMax && !disabled && 'opacity-50',
+          isAtMax && !disabled && 'GeckoUICounterInput__button--inactive',
         )}
         style={buttonStyle}
         onPress={handleIncrement}

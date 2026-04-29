@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
+  safelist: [{ pattern: /^GeckoUI/ }],
   theme: {
     spacing: {
       px: '1px',

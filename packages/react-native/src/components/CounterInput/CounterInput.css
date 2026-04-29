@@ -23,6 +23,10 @@
     @apply border-primary-400;
   }
 
+  .GeckoUICounterInput__button--inactive {
+    @apply opacity-50;
+  }
+
   .GeckoUICounterInput__button--sm {
     @apply h-8 w-8;
   }
