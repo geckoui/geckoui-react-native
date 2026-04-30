@@ -59,7 +59,7 @@ export const RHFInput = ({
           }}
           onBlur={() => {
             field.onBlur();
-            onBlur?.(raw);
+            onBlur?.(display);
           }}
         />
       );

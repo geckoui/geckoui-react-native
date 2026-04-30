@@ -27,13 +27,14 @@ export const RHFTextarea = ({
     render={({ field, fieldState }) => {
       const raw = (field.value ?? '') as string;
       const display = transform?.input ? transform.input(raw) : raw;
+      const disabled = (rest as { disabled?: boolean }).disabled;
 
       return (
         <Textarea
           {...rest}
           className={twMerge(
             'GeckoUIRHFTextarea',
-            fieldState.error && 'GeckoUIRHFTextarea--error',
+            !disabled && fieldState.error && 'GeckoUIRHFTextarea--error',
             className,
           )}
           value={display}

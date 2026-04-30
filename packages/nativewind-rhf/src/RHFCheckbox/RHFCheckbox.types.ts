@@ -37,4 +37,10 @@ export interface RHFCheckboxProps
    */
   // biome-ignore lint/suspicious/noExplicitAny: matches RHF's generic-erased renderProps shape
   partial?: boolean | ((args: RHFRenderArgs<any>) => boolean);
+
+  /** Display text rendered next to the checkbox. */
+  label?: string;
+
+  /** NativeWind class applied to the Text label rendered next to the checkbox. */
+  labelClassName?: string;
 }

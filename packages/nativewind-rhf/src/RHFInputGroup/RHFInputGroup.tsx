@@ -24,7 +24,7 @@ const findRHFChild = (node: React.ReactNode): React.ReactElement | null => {
   }
   if (!isValidElement(node)) return null;
   const type = node.type as { displayName?: string };
-  if (type?.displayName?.toLowerCase().startsWith('rhf')) {
+  if (type?.displayName?.toLowerCase().includes('rhf')) {
     return node;
   }
   const childProps = node.props as { children?: React.ReactNode };
@@ -49,11 +49,19 @@ export const RHFInputGroup = ({
   errorClassName,
   style,
   ...labelRest
-}: RHFInputGroupProps): React.ReactElement => {
+}: RHFInputGroupProps): React.ReactElement | null => {
+  if (!children) {
+    console.error('RHFInputGroup must have children');
+    return null;
+  }
+
   const rhfChild = Children.toArray(children).reduce<React.ReactElement | null>(
     (acc, child) => acc ?? findRHFChild(child),
     null,
   );
+  if (!rhfChild) {
+    console.warn('RHFInputGroup not containing any RHF input component');
+  }
   const { name, control } = (rhfChild?.props ?? {}) as RHFChildProps;
 
   return (

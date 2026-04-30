@@ -1,5 +1,6 @@
 import { Radio } from '@geckoui/nativewind';
 import type React from 'react';
+import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import { RHFController } from '../RHFController';
@@ -21,6 +22,8 @@ export const RHFRadio = ({
   className,
   disabled,
   value,
+  label,
+  labelClassName,
   onChange,
   onBlur,
   ...rest
@@ -42,7 +45,7 @@ export const RHFRadio = ({
           onChange?.(value);
         };
 
-        return (
+        const radioNode = (
           <Radio
             {...rest}
             checked={checked}
@@ -58,6 +61,25 @@ export const RHFRadio = ({
               className,
             )}
           />
+        );
+
+        if (label === undefined) return radioNode;
+
+        return (
+          <Pressable
+            accessibilityRole="radio"
+            accessibilityState={{ checked, disabled: !!disabled }}
+            disabled={disabled}
+            onPress={handleChange}
+            className={twMerge(
+              'GeckoUIRHFRadio__row flex-row items-center gap-2',
+            )}
+          >
+            <View pointerEvents="none">{radioNode}</View>
+            <Text className={twMerge('GeckoUIRHFRadio__label', labelClassName)}>
+              {label}
+            </Text>
+          </Pressable>
         );
       }}
     />

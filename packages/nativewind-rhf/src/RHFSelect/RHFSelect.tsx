@@ -14,15 +14,18 @@ const SelectAny = Select as (props: any) => ReactElement;
  *
  * Supports both single (`value: T`) and multiple (`multiple`, `value: T[]`)
  * selection modes, mirroring the base `Select` component.
+ *
+ * Note: `className` styles the outer wrapper (merged with `wrapperClassName`).
  */
 const RHFSelect: RHFSelectOverload = <T,>({
   name,
   control,
   rules,
+  className,
   wrapperClassName,
   buttonClassName,
   ...rest
-}: RHFSelectProps<T>) => {
+}: RHFSelectProps<T> & { className?: string }) => {
   return (
     <RHFController
       name={name}
@@ -36,6 +39,7 @@ const RHFSelect: RHFSelectOverload = <T,>({
               'GeckoUIRHFSelect',
               error && 'GeckoUIRHFSelect--error',
               wrapperClassName,
+              className,
             )}
             buttonClassName={twMerge(
               error && 'GeckoUIRHFSelect__button--error',

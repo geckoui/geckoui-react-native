@@ -12,7 +12,10 @@ export interface RHFErrorProps extends RHFBaseProps {
   /**
    * Custom error renderer. Receives RHF's `fieldState` so you can read
    * `error.message`, `error.type`, etc. If omitted, uses the default
-   * `InputError` look.
+   * `InputError` look. May also be a static `ReactNode`, which is rendered
+   * as-is when an error is present.
    */
-  render?: (props: RHFErrorRenderProps) => JSX.Element | ReactNode;
+  render?:
+    | ReactNode
+    | ((props: RHFErrorRenderProps) => JSX.Element | ReactNode);
 }

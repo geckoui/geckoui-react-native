@@ -23,6 +23,8 @@ export const RHFError = ({
       if (!fieldState.error?.message) return <Fragment key="rhf-error-empty" />;
       if (typeof render === 'function')
         return <Fragment key="rhf-error">{render(fieldState)}</Fragment>;
+      if (render !== undefined)
+        return <Fragment key="rhf-error">{render}</Fragment>;
       return (
         <InputError className={twMerge('GeckoUIRHFError', className)}>
           {fieldState.error.message}

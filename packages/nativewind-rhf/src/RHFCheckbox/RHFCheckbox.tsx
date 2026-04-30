@@ -1,5 +1,6 @@
 import { Checkbox } from '@geckoui/nativewind';
 import type React from 'react';
+import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import { RHFController } from '../RHFController';
@@ -24,6 +25,8 @@ export const RHFCheckbox = ({
   single,
   partial,
   disabled,
+  label,
+  labelClassName,
   onChange,
   onBlur,
   ...rest
@@ -72,7 +75,7 @@ export const RHFCheckbox = ({
         onChange?.(next);
       };
 
-      return (
+      const checkboxNode = (
         <Checkbox
           {...rest}
           checked={checkedState}
@@ -88,6 +91,30 @@ export const RHFCheckbox = ({
             className,
           )}
         />
+      );
+
+      if (label === undefined) return checkboxNode;
+
+      return (
+        <Pressable
+          accessibilityRole="checkbox"
+          accessibilityState={{
+            checked: checkedState === 'indeterminate' ? 'mixed' : checkedState,
+            disabled: !!disabled,
+          }}
+          disabled={disabled}
+          onPress={handleChange}
+          className={twMerge(
+            'GeckoUIRHFCheckbox__row flex-row items-center gap-2',
+          )}
+        >
+          <View pointerEvents="none">{checkboxNode}</View>
+          <Text
+            className={twMerge('GeckoUIRHFCheckbox__label', labelClassName)}
+          >
+            {label}
+          </Text>
+        </Pressable>
       );
     }}
   />

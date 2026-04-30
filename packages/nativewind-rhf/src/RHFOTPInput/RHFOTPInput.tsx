@@ -15,6 +15,7 @@ export const RHFOTPInput = ({
   name,
   rules,
   className,
+  disabled,
   onChange,
   onBlur,
   onOTPComplete,
@@ -30,12 +31,13 @@ export const RHFOTPInput = ({
       return (
         <OTPInput
           {...rest}
+          disabled={disabled}
           className={twMerge(
             'GeckoUIRHFOTPInput',
             fieldState.error && 'GeckoUIRHFOTPInput--error',
             className,
           )}
-          error={!!fieldState.error}
+          error={!disabled && !!fieldState.error}
           value={value}
           onChange={(next) => {
             field.onChange(next);

@@ -15,4 +15,10 @@ export interface RHFRadioProps
    * Called with the new form value whenever it changes.
    */
   onChange?: (value: unknown) => void;
+
+  /** Display text rendered next to the radio. */
+  label?: string;
+
+  /** NativeWind class applied to the Text label rendered next to the radio. */
+  labelClassName?: string;
 }
