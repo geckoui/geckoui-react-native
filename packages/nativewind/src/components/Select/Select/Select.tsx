@@ -1,5 +1,5 @@
-import React, { Children, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
+import { Children, useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

@@ -13,7 +13,6 @@ export const formatDateForDisplay = (
       return `${day}/${month}/${year}`;
     case 'MM/DD/YYYY':
       return `${month}/${day}/${year}`;
-    case 'YYYY-MM-DD':
     default:
       return `${year}-${month}-${day}`;
   }

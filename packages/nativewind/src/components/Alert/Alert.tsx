@@ -1,5 +1,5 @@
-import type React from 'react';
 import { cva } from 'class-variance-authority';
+import type React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

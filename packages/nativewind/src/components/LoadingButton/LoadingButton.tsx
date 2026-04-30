@@ -1,7 +1,7 @@
-import type React from 'react';
 import { cva } from 'class-variance-authority';
-import { twMerge } from 'tailwind-merge';
+import type React from 'react';
 import { View } from 'react-native';
+import { twMerge } from 'tailwind-merge';
 
 import { Button, labelCva } from '../Button/Button';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer';

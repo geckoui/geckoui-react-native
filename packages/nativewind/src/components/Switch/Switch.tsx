@@ -1,7 +1,7 @@
-import type React from 'react';
-import { useEffect, useRef } from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
+import type React from 'react';
+import { useEffect, useRef } from 'react';
 import { Animated, Pressable } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
@@ -57,7 +57,7 @@ const SwitchImpl = ({
       duration: 150,
       useNativeDriver: true,
     }).start();
-  }, [value]);
+  }, [value, translateX]);
 
   return (
     <Pressable

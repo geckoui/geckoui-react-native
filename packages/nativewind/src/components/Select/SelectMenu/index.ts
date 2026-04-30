@@ -1,3 +1,3 @@
 export { SelectMenu } from './SelectMenu';
-export { SelectMenuHost } from './SelectMenuHost';
 export * from './SelectMenu.types';
+export { SelectMenuHost } from './SelectMenuHost';

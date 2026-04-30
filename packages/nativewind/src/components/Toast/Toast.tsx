@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import type React from 'react';
+import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

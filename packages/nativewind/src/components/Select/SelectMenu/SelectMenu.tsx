@@ -1,3 +1,4 @@
+import type { ReactElement, ReactNode } from 'react';
 import React, {
   Children,
   useCallback,
@@ -5,7 +6,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import type { ReactElement, ReactNode } from 'react';
 import {
   Dimensions,
   FlatList,
@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { twMerge } from 'tailwind-merge';
-
+import type { SelectContextProps } from '../Select/Select.types';
 import { SelectContext, useSelect } from '../Select.context';
 import {
   isHideSelectOption,
@@ -26,9 +26,8 @@ import {
 import { SelectDropdownSearch } from '../SelectDropdownSearch';
 import { SelectEmpty } from '../SelectEmpty';
 import type { SelectOptionProps } from '../SelectOption/SelectOption.types';
-import type { SelectContextProps } from '../Select/Select.types';
-import { createSelectMenuSlot, setSelectMenuNode } from './SelectMenuHost';
 import type { SelectMenuProps } from './SelectMenu.types';
+import { createSelectMenuSlot, setSelectMenuNode } from './SelectMenuHost';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 

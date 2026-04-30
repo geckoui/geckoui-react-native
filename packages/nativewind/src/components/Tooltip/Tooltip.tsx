@@ -1,3 +1,4 @@
+import type React from 'react';
 import {
   Children,
   cloneElement,
@@ -6,8 +7,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import type React from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, type View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import type { TooltipProps } from './Tooltip.types';

@@ -1,6 +1,6 @@
-import { forwardRef, useState } from 'react';
-import type React from 'react';
 import { remapProps } from 'nativewind';
+import type React from 'react';
+import { forwardRef, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

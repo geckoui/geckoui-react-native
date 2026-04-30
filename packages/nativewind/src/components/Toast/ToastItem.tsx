@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
-import { useEffect, useRef } from 'react';
 import type React from 'react';
+import { useEffect, useRef } from 'react';
 import { Animated, PanResponder, Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

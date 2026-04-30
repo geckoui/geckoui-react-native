@@ -1,5 +1,5 @@
-import { Fragment, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 type Listener = () => void;
 

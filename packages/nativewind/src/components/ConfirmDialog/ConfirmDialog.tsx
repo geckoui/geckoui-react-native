@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import type React from 'react';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import { Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

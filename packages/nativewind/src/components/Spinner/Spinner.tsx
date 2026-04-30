@@ -1,5 +1,5 @@
-import type React from 'react';
 import { cssInterop } from 'nativewind';
+import type React from 'react';
 import { ActivityIndicator } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

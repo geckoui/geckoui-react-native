@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import type React from 'react';
 import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Animated, Modal, Pressable, StyleSheet } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

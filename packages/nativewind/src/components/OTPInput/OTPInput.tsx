@@ -1,7 +1,7 @@
-import type React from 'react';
-import { useRef, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
+import type React from 'react';
+import { useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 

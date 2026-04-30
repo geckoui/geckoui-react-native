@@ -1,7 +1,7 @@
 export { Tooltip } from './Tooltip';
-export { TooltipHost } from './TooltipHost';
 export type {
-  TooltipProps,
-  TooltipPlacement,
   TooltipAnchor,
+  TooltipPlacement,
+  TooltipProps,
 } from './Tooltip.types';
+export { TooltipHost } from './TooltipHost';

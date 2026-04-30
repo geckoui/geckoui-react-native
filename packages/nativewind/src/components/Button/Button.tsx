@@ -1,6 +1,6 @@
-import type React from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
+import type React from 'react';
 import { Pressable } from 'react-native';
 
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer';

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, type TextInput, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import { Input } from '../../Input/Input';
@@ -38,5 +38,5 @@ const SelectDropdownSearch = forwardRef<TextInput, SelectDropdownSearchProps>(
 
 SelectDropdownSearch.displayName = 'SelectDropdownSearch';
 
-export { SelectDropdownSearch };
 export type { SelectDropdownSearchProps };
+export { SelectDropdownSearch };

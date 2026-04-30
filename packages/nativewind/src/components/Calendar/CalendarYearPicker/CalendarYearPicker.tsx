@@ -11,7 +11,7 @@ export const CalendarYearPicker = ({
   onSelectYear,
   onClickHeader,
 }: CalendarYearPickerProps): React.ReactElement => {
-  let start = parseInt((activeYear / 10).toFixed(0)) * 10;
+  let start = parseInt((activeYear / 10).toFixed(0), 10) * 10;
   if (activeYear + 1 === start) start -= 10;
 
   const [years, setYears] = useState(() =>

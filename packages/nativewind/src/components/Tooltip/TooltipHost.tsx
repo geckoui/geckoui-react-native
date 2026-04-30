@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import type React from 'react';
+import { useEffect, useState } from 'react';
 import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
@@ -85,6 +85,7 @@ export function TooltipHost(): React.ReactElement | null {
   }, []);
 
   // Reset measured width whenever the active tooltip changes (different content).
+  // biome-ignore lint/correctness/useExhaustiveDependencies: state?.id is the trigger, not a body dep
   useEffect(() => {
     setBubbleWidth(null);
   }, [state?.id]);

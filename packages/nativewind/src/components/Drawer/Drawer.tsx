@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Dimensions,
@@ -75,7 +76,7 @@ function DrawerComponent({
         }),
       ]).start(() => setModalVisible(false));
     }
-  }, [open]);
+  }, [open, translateAnim, placement, backdropOpacity]);
 
   const isHorizontal = placement === 'left' || placement === 'right';
   const transformStyle = isHorizontal

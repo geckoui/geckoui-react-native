@@ -1,7 +1,7 @@
-import type React from 'react';
-import { useEffect, useState } from 'react';
 import { cva } from 'class-variance-authority';
 import { remapProps } from 'nativewind';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
@@ -99,7 +99,7 @@ const CounterInputImpl = ({
     if (text !== '' && !/^-?\d*\.?\d*$/.test(text)) return;
     setInputValue(text);
     const parsed = parseFloat(text);
-    if (!isNaN(parsed)) onChange(clamp(parsed));
+    if (!Number.isNaN(parsed)) onChange(clamp(parsed));
   };
 
   const handleBlur = () => {

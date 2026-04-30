@@ -2,9 +2,8 @@ import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
-
-import { Calendar } from '../Calendar';
 import type { DateRange } from '../Calendar';
+import { Calendar } from '../Calendar';
 import { Dialog } from '../Dialog';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer/DynamicComponentRenderer';
 import type { DateRangeInputProps } from './DateRangeInput.types';

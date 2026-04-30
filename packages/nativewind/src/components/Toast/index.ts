@@ -1,9 +1,9 @@
 export { default as Toast, ToastHost } from './Toast';
 export type {
-  ToastVariant,
-  ToastPosition,
   ToastAction,
-  ToastOptions,
-  ToastInstance,
   ToastHostProps,
+  ToastInstance,
+  ToastOptions,
+  ToastPosition,
+  ToastVariant,
 } from './Toast.types';

@@ -1,2 +1,2 @@
-export { default as Dialog, DialogHost } from './Dialog';
+export { DialogHost, default as Dialog } from './Dialog';
 export type { DialogContentProps, DialogOptions } from './Dialog.types';

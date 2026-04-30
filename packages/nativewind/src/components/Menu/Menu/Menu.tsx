@@ -1,11 +1,10 @@
 import { Children, useCallback, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
-
-import { MenuContext } from '../useMenu';
 import { isMenuTrigger } from '../Menu.utils';
 import { MenuButton } from '../MenuButton';
 import { MenuPanel } from '../MenuPanel';
+import { MenuContext } from '../useMenu';
 import type { MenuPosition, MenuProps } from './Menu.types';
 
 export const Menu = ({
