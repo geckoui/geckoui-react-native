@@ -1,6 +1,6 @@
 @layer components {
   .GeckoUIOTPInput {
-    @apply relative flex-row gap-2 justify-center;
+    @apply relative w-full max-w-full flex-row gap-2 justify-center;
   }
 
   .GeckoUIOTPInput--disabled {
@@ -8,7 +8,8 @@
   }
 
   .GeckoUIOTPInput__cell {
-    @apply h-14 items-center justify-center aspect-square rounded-lg border border-border-secondary bg-surface-primary;
+    @apply flex-1 items-center justify-center aspect-square rounded-lg border border-border-secondary bg-surface-primary;
+    max-width: 56px;
   }
 
   .GeckoUIOTPInput__cell--focused {
