@@ -1,7 +1,7 @@
 {
-  "name": "@geckoui/react-native",
+  "name": "@geckoui/nativewind",
   "version": "0.1.0",
-  "description": "GeckoUI component library for React Native",
+  "description": "GeckoUI component library for React Native + NativeWind",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
