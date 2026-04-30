@@ -28,6 +28,7 @@ const Select = <T,>(props: SelectProps<T>): ReactNode => {
     wrapperStyle,
     menuClassName,
     menuStyle,
+    buttonClassName,
     ...rest
   } = props;
 
@@ -102,7 +103,7 @@ const Select = <T,>(props: SelectProps<T>): ReactNode => {
         className={twMerge('GeckoUISelect', wrapperClassName)}
         style={wrapperStyle}
       >
-        <SelectButton />
+        <SelectButton className={buttonClassName} />
         <SelectMenu className={menuClassName} style={menuStyle}>
           {children}
         </SelectMenu>

@@ -12,11 +12,19 @@
   }
 
   .GeckoUIOTPInput__cell--focused {
-    @apply border-primary-400;
+    @apply border-primary-400 bg-primary-50;
   }
 
   .GeckoUIOTPInput__cell--disabled {
     @apply bg-surface-disabled;
+  }
+
+  .GeckoUIOTPInput__cell--error {
+    @apply border-error;
+  }
+
+  .GeckoUIOTPInput__cell--error-focused {
+    @apply bg-red-50 dark:bg-red-950;
   }
 
   .GeckoUIOTPInput__cell-text {

@@ -1,0 +1,23 @@
+@layer components {
+  .GeckoUIRHFInputGroup {
+    @apply gap-1.5;
+  }
+
+  /* Error states — red border on the visible bordered element of each wrapper */
+  .GeckoUIRHFInput--error,
+  .GeckoUIRHFTextarea--error,
+  .GeckoUIRHFDateInput--error,
+  .GeckoUIRHFDateRangeInput--error,
+  .GeckoUIRHFSelect__button--error,
+  .GeckoUIRHFCheckbox--error,
+  .GeckoUIRHFRadio--error,
+  .GeckoUIRHFCounterInput__button--error,
+  .GeckoUIRHFCounterInput__input--error {
+    @apply border-error;
+  }
+
+  /* Switch has no border by default — add one in error state */
+  .GeckoUIRHFSwitch--error {
+    @apply border border-error;
+  }
+}

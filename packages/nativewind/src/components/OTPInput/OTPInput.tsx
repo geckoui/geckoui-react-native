@@ -27,8 +27,19 @@ const cellCva = cva('GeckoUIOTPInput__cell', {
       true: 'GeckoUIOTPInput__cell--disabled',
       false: '',
     },
+    error: {
+      true: 'GeckoUIOTPInput__cell--error',
+      false: '',
+    },
   },
-  defaultVariants: { focused: false, disabled: false },
+  compoundVariants: [
+    {
+      focused: true,
+      error: true,
+      class: 'GeckoUIOTPInput__cell--error-focused',
+    },
+  ],
+  defaultVariants: { focused: false, disabled: false, error: false },
 });
 
 const OTPInputImpl = ({
@@ -45,6 +56,7 @@ const OTPInputImpl = ({
   inputStyle,
   length = 6,
   disabled,
+  error,
 }: OTPInputProps): React.ReactElement => {
   const inputRef = useRef<TextInput | null>(null);
   const [focused, setFocused] = useState(false);
@@ -81,7 +93,11 @@ const OTPInputImpl = ({
           <View
             key={index}
             className={twMerge(
-              cellCva({ focused: isCurrent, disabled: !!disabled }),
+              cellCva({
+                focused: isCurrent,
+                disabled: !!disabled,
+                error: !!error,
+              }),
               _cellClassName,
             )}
             style={cellStyle}

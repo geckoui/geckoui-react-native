@@ -30,4 +30,10 @@ export interface OTPInputProps {
   length?: number;
 
   disabled?: boolean;
+
+  /**
+   * @internal Used by `RHFOTPInput` to opt cells into error styling. Prefer
+   * `RHFOTPInput` for form integration; this prop is not part of the public API.
+   */
+  error?: boolean;
 }

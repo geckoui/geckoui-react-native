@@ -9,6 +9,9 @@ export interface BaseSelectProps {
   /** Class applied to the outer wrapper around the trigger. */
   wrapperClassName?: string;
 
+  /** Class applied to the default `SelectButton` trigger (ignored when using a custom `SelectTrigger` child). */
+  buttonClassName?: string;
+
   /** Style applied to the outer wrapper around the trigger. */
   wrapperStyle?: StyleProp<ViewStyle>;
 
