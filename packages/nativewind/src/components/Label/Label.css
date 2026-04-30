@@ -1,9 +1,22 @@
 @layer components {
   .GeckoUILabel {
-    @apply text-sm font-medium text-text-secondary;
+    @apply flex-row items-center;
+  }
+
+  .GeckoUILabel__text {
+    @apply pr-0.5 text-sm font-medium text-text-secondary;
   }
 
   .GeckoUILabel__required-indicator {
-    @apply text-red-500;
+    @apply pr-0.5 text-error;
+  }
+
+  .GeckoUILabel__tooltip-icon {
+    @apply size-3.5 rounded-full items-center justify-center bg-info;
+  }
+
+  .GeckoUILabel__tooltip-icon-glyph {
+    @apply text-text-on-primary font-bold leading-none;
+    font-size: 8px;
   }
 }
