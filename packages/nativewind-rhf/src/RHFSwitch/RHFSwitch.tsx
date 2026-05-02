@@ -51,7 +51,7 @@ export const RHFSwitch = ({
       return (
         <Switch
           {...rest}
-          value={isOn}
+          checked={isOn}
           disabled={disabled}
           onChange={handleChange}
           onBlur={(e) => {

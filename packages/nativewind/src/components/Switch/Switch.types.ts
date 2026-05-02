@@ -7,7 +7,7 @@ export interface SwitchSizeMap {
 
 export interface SwitchProps
   extends Omit<PressableProps, 'style' | 'children' | 'onPress'> {
-  value?: boolean;
+  checked?: boolean;
   onChange?: (value: boolean) => void;
   size?: keyof SwitchSizeMap;
   disabled?: boolean;

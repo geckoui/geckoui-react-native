@@ -19,6 +19,7 @@ const SelectButton = ({ className }: SelectButtonProps): ReactNode => {
     closeMenu,
     open,
     options,
+    keyword,
     handleChange,
     onChange,
     clearable,
@@ -89,7 +90,22 @@ const SelectButton = ({ className }: SelectButtonProps): ReactNode => {
                     hitSlop={12}
                     onPress={(e) => {
                       e.stopPropagation();
-                      handleChange(v as never);
+                      const opt = options.find((o) => isEqual(o.value, v));
+                      let prevented = false;
+                      const selectCurrentOption = () =>
+                        handleChange(v as never);
+                      opt?.props?.onRemove?.({
+                        preventDefault: () => {
+                          prevented = true;
+                        },
+                        selectCurrentOption,
+                        value: v as never,
+                        focused: false,
+                        selected: true,
+                        closeMenu,
+                        filteredKeyword: keyword,
+                      });
+                      if (!prevented) selectCurrentOption();
                     }}
                   >
                     <Text className="GeckoUISelectButton__multiselected-chip__clear-button__icon">

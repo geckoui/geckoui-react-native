@@ -37,7 +37,8 @@ const SelectMenu = ({
   style,
 }: SelectMenuProps): ReactNode => {
   const ctx = useSelect();
-  const { open, closeMenu, filterable, keyword, isEmpty } = ctx;
+  const { open, closeMenu, filterable, keyword, isEmpty, hideDefaultEmptyUI } =
+    ctx;
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [slotId] = useState(() => createSelectMenuSlot());
   const insets = useSafeAreaInsets();
@@ -166,7 +167,9 @@ const SelectMenu = ({
                 data={items}
                 keyExtractor={keyExtractor}
                 renderItem={renderItem}
-                ListEmptyComponent={customEmpty ?? <SelectEmpty />}
+                ListEmptyComponent={
+                  customEmpty ?? (hideDefaultEmptyUI ? null : <SelectEmpty />)
+                }
               />
             </View>
           </View>
@@ -182,6 +185,7 @@ const SelectMenu = ({
     showSearch,
     customSearch,
     customEmpty,
+    hideDefaultEmptyUI,
     items,
     renderItem,
     keyExtractor,

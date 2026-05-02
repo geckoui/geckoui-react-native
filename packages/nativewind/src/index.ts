@@ -64,14 +64,7 @@ export type {
   MenuTriggerProps,
   MenuTriggerRenderProps,
 } from './components/Menu';
-export {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuPanel,
-  MenuTrigger,
-  useMenu,
-} from './components/Menu';
+export { Menu, MenuItem, MenuTrigger, useMenu } from './components/Menu';
 export type { OTPInputProps } from './components/OTPInput';
 export { OTPInput } from './components/OTPInput';
 export type { PaginationProps } from './components/Pagination';

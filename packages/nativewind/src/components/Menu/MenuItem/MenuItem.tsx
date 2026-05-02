@@ -1,7 +1,8 @@
 import type React from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
+import { DynamicComponentRenderer } from '../../DynamicComponentRenderer';
 import { useMenu } from '../useMenu';
 import type { MenuItemProps } from './MenuItem.types';
 
@@ -31,14 +32,13 @@ export const MenuItem = ({
         className,
       )}
     >
-      <Text
+      <DynamicComponentRenderer
+        component={children}
         className={twMerge(
           'GeckoUIMenu__item-text',
           disabled && 'GeckoUIMenu__item-text--disabled',
         )}
-      >
-        {children}
-      </Text>
+      />
     </Pressable>
   );
 };

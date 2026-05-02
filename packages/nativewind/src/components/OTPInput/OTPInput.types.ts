@@ -8,7 +8,7 @@ export interface OTPInputProps {
   /** Fired exactly once when the user fills the final cell. */
   onOTPComplete?: (value: string) => void;
 
-  /** Restrict input to numeric characters only. Default `false`. */
+  /** Restrict input to numeric characters only. Default `true`. */
   numberOnly?: boolean;
 
   className?: string;

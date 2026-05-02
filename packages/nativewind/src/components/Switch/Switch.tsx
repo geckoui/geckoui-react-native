@@ -36,7 +36,7 @@ const thumbCva = cva('GeckoUISwitch__thumb', {
 });
 
 const SwitchImpl = ({
-  value = false,
+  checked = false,
   onChange,
   size = 'md',
   disabled,
@@ -53,21 +53,21 @@ const SwitchImpl = ({
   useEffect(() => {
     if (!ready.current) return;
     Animated.timing(translateX, {
-      toValue: value ? travel.current : 0,
+      toValue: checked ? travel.current : 0,
       duration: 150,
       useNativeDriver: true,
     }).start();
-  }, [value, translateX]);
+  }, [checked, translateX]);
 
   return (
     <Pressable
       accessibilityRole="switch"
-      accessibilityState={{ checked: value, disabled: !!disabled }}
+      accessibilityState={{ checked, disabled: !!disabled }}
       disabled={disabled}
       hitSlop={12}
-      onPress={() => onChange?.(!value)}
+      onPress={() => onChange?.(!checked)}
       className={twMerge(
-        trackCva({ size, on: value, disabled: !!disabled }),
+        trackCva({ size, on: checked, disabled: !!disabled }),
         className,
       )}
       style={style}
@@ -84,7 +84,7 @@ const SwitchImpl = ({
           if (ready.current) return;
           const thumbW = e.nativeEvent.layout.width;
           travel.current = travel.current - thumbW - 4;
-          translateX.setValue(value ? travel.current : 0);
+          translateX.setValue(checked ? travel.current : 0);
           ready.current = true;
         }}
       />
