@@ -3,6 +3,26 @@
   "version": "0.1.0",
   "description": "React Hook Form wrappers for @geckoui/nativewind components",
   "license": "MIT",
+  "keywords": [
+    "react-native",
+    "nativewind",
+    "react-hook-form",
+    "rhf",
+    "forms",
+    "geckoui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geckoui/geckoui-react-native.git",
+    "directory": "packages/nativewind-rhf"
+  },
+  "homepage": "https://github.com/geckoui/geckoui-react-native/tree/main/packages/nativewind-rhf#readme",
+  "bugs": {
+    "url": "https://github.com/geckoui/geckoui-react-native/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

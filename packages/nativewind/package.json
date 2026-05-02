@@ -3,6 +3,26 @@
   "version": "0.1.0",
   "description": "GeckoUI component library for React Native + NativeWind",
   "license": "MIT",
+  "keywords": [
+    "react-native",
+    "nativewind",
+    "tailwind",
+    "components",
+    "ui",
+    "geckoui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geckoui/geckoui-react-native.git",
+    "directory": "packages/nativewind"
+  },
+  "homepage": "https://github.com/geckoui/geckoui-react-native/tree/main/packages/nativewind#readme",
+  "bugs": {
+    "url": "https://github.com/geckoui/geckoui-react-native/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
