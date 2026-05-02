@@ -4,14 +4,18 @@
   "packageManager": "pnpm@10.29.2",
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build",
+    "build": "turbo build --filter='./packages/*'",
     "typecheck": "turbo typecheck",
     "lint": "biome lint .",
     "format": "biome format --write .",
-    "check": "biome check --write ."
+    "check": "biome check --write .",
+    "changeset": "changeset",
+    "bump": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.13",
+    "@changesets/cli": "^2.29.7",
     "turbo": "^2.9.6",
     "typescript": "^6.0.3"
   }
