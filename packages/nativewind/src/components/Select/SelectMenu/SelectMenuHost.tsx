@@ -1,33 +1,43 @@
 import type { ReactNode } from 'react';
 import { Fragment, useEffect, useState } from 'react';
 
-type Listener = () => void;
+type SelectMenuHostEntry = {
+  setSlot: (id: number, node: ReactNode | null) => void;
+};
 
-const slots = new Map<number, ReactNode>();
-const listeners = new Set<Listener>();
+const _hostStack: SelectMenuHostEntry[] = [];
 let nextId = 0;
 
 export const createSelectMenuSlot = (): number => ++nextId;
 
 export const setSelectMenuNode = (id: number, node: ReactNode | null): void => {
-  if (node === null) {
-    if (!slots.has(id)) return;
-    slots.delete(id);
-  } else {
-    slots.set(id, node);
-  }
-  for (const listener of listeners) listener();
+  _hostStack[_hostStack.length - 1]?.setSlot(id, node);
 };
 
 export const SelectMenuHost = (): ReactNode => {
-  const [, force] = useState(0);
+  const [slots, setSlots] = useState<Map<number, ReactNode>>(new Map());
+
   useEffect(() => {
-    const fn = () => force((n) => n + 1);
-    listeners.add(fn);
+    const entry: SelectMenuHostEntry = {
+      setSlot: (id, node) => {
+        setSlots((prev) => {
+          const next = new Map(prev);
+          if (node === null) {
+            next.delete(id);
+          } else {
+            next.set(id, node);
+          }
+          return next;
+        });
+      },
+    };
+    _hostStack.push(entry);
     return () => {
-      listeners.delete(fn);
+      const idx = _hostStack.indexOf(entry);
+      if (idx !== -1) _hostStack.splice(idx, 1);
     };
   }, []);
+
   return (
     <>
       {Array.from(slots.entries()).map(([id, node]) => (

@@ -1,5 +1,9 @@
 export type { AlertProps, AlertVariantMap } from './components/Alert';
 export { Alert } from './components/Alert';
+export {
+  CalendarPicker,
+  CalendarPickerHost,
+} from './components/CalendarPicker';
 export type {
   ButtonColorMap,
   ButtonProps,
@@ -49,7 +53,7 @@ export type { DialogContentProps, DialogOptions } from './components/Dialog';
 export { Dialog, DialogHost } from './components/Dialog';
 export type { DrawerPlacementMap, DrawerProps } from './components/Drawer';
 export { Drawer, DrawerHost } from './components/Drawer';
-export { GeckoUIPortal } from './components/GeckoUIPortal';
+export { GeckoUIOverlayHosts, GeckoUIPortal } from './components/GeckoUIPortal';
 export type { InputProps } from './components/Input';
 export { Input } from './components/Input';
 export type { InputErrorProps } from './components/InputError';
@@ -64,7 +68,13 @@ export type {
   MenuTriggerProps,
   MenuTriggerRenderProps,
 } from './components/Menu';
-export { Menu, MenuItem, MenuTrigger, useMenu } from './components/Menu';
+export {
+  Menu,
+  MenuItem,
+  MenuPanelHost,
+  MenuTrigger,
+  useMenu,
+} from './components/Menu';
 export type { OTPInputProps } from './components/OTPInput';
 export { OTPInput } from './components/OTPInput';
 export type { PaginationProps } from './components/Pagination';

@@ -548,7 +548,7 @@ export default function ComponentsScreen() {
         open={drawerOpen}
         placement={drawerPlacement}
         handleClose={() => setDrawerOpen(false)}
-        allowClickOutside
+        dismissOnBackdropPress
       >
         <View style={{ padding: 24, gap: 16 }}>
           <Text style={{ fontWeight: '700', fontSize: 16 }}>

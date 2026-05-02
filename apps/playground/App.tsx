@@ -9,6 +9,7 @@ import type { TabId } from './components/TabBar';
 import { TabBar } from './components/TabBar';
 import BookingScreen from './screens/BookingScreen';
 import ComponentsScreen from './screens/ComponentsScreen';
+import OverlayScreen from './screens/OverlayScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RHFFormScreen from './screens/RHFFormScreen';
 import SignUpScreen from './screens/SignUpScreen';
@@ -26,6 +27,7 @@ export default function App() {
           {tab === 'profile' && <ProfileScreen />}
           {tab === 'booking' && <BookingScreen />}
           {tab === 'rhf' && <RHFFormScreen />}
+          {tab === 'overlay' && <OverlayScreen />}
         </View>
         <TabBar active={tab} onChange={setTab} />
         <GeckoUIPortal />

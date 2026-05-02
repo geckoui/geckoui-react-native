@@ -37,11 +37,11 @@ export interface DateRangeInputProps {
   style?: StyleProp<ViewStyle>;
   placeholderClassName?: string;
 
-  /** Class applied to the `<Calendar>` rendered inside the dialog. */
+  /** Class applied to the `<Calendar>` rendered inside the picker. */
   calendarClassName?: string;
 
-  /** Class applied to the dialog surface itself. */
-  dialogClassName?: string;
+  /** Class applied to the bottom-sheet picker panel. */
+  pickerClassName?: string;
 
   prefix?: ReactNode;
   suffix?: ReactNode;

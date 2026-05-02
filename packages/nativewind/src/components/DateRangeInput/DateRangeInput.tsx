@@ -4,15 +4,10 @@ import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 import type { DateRange } from '../Calendar';
 import { Calendar } from '../Calendar';
-import { Dialog } from '../Dialog';
+import { CalendarPicker } from '../CalendarPicker';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer/DynamicComponentRenderer';
 import type { DateRangeInputProps } from './DateRangeInput.types';
 import { formatRangeForDisplay } from './DateRangeInput.utils';
-
-// Hold the dialog open briefly after the second date is picked so the user sees the
-// final range bar settle BEFORE the dialog scale-out begins. The range underlay is
-// percentage-positioned, so it shimmies if it re-layouts while the dialog is shrinking.
-const COMPLETION_PAUSE_MS = 100;
 
 interface RangePickerProps {
   initialValue?: DateRange | null;
@@ -49,7 +44,7 @@ const RangePicker = ({
           completingRef.current = true;
           timerRef.current = setTimeout(() => {
             onComplete(r);
-          }, COMPLETION_PAUSE_MS);
+          }, 0);
         }
       }}
       disableDate={disableDate}
@@ -72,7 +67,7 @@ export const DateRangeInput = ({
   style,
   placeholderClassName,
   calendarClassName,
-  dialogClassName,
+  pickerClassName,
   prefix,
   suffix,
   disableDate,
@@ -87,8 +82,8 @@ export const DateRangeInput = ({
 
   const openCalendar = () => {
     if (disabled) return;
-    Dialog.show({
-      className: twMerge('GeckoUIDateRangeInput__dialog', dialogClassName),
+    CalendarPicker.show({
+      className: twMerge('GeckoUIDateRangeInput__picker', pickerClassName),
       content: ({ dismiss }) => (
         <RangePicker
           initialValue={value}

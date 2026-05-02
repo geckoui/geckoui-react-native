@@ -11,8 +11,8 @@ export interface DrawerPlacementMap {
 export interface DrawerProps {
   open: boolean;
 
-  /** Allow tapping the backdrop to close. Default `false`. */
-  allowClickOutside?: boolean;
+  /** Tapping the backdrop closes the drawer. Default `true`. */
+  dismissOnBackdropPress?: boolean;
 
   /** Called when the drawer requests close (backdrop tap, hardware back, etc.). */
   handleClose?: () => void;

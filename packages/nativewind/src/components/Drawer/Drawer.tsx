@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
+import { DialogHost } from '../Dialog/Dialog';
+import { GeckoUIOverlayHosts } from '../GeckoUIPortal/GeckoUIOverlayHosts';
 import type { DrawerProps } from './Drawer.types';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -30,7 +32,7 @@ function getInitialTranslate(placement: string): number {
 
 function DrawerComponent({
   open = false,
-  allowClickOutside,
+  dismissOnBackdropPress = true,
   handleClose,
   hideBackdrop = false,
   placement = 'right',
@@ -100,7 +102,7 @@ function DrawerComponent({
             backdropStyle,
           ]}
           className={backdropClassName}
-          pointerEvents={allowClickOutside ? 'auto' : 'none'}
+          pointerEvents={dismissOnBackdropPress ? 'auto' : 'none'}
         >
           <Pressable
             style={StyleSheet.absoluteFillObject}
@@ -118,6 +120,8 @@ function DrawerComponent({
       >
         {children}
       </Animated.View>
+      <GeckoUIOverlayHosts />
+      <DialogHost />
     </Modal>
   );
 }

@@ -1,7 +1,13 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export type TabId = 'components' | 'signup' | 'profile' | 'booking' | 'rhf';
+export type TabId =
+  | 'components'
+  | 'signup'
+  | 'profile'
+  | 'booking'
+  | 'rhf'
+  | 'overlay';
 
 interface Tab {
   id: TabId;
@@ -10,11 +16,12 @@ interface Tab {
 }
 
 const TABS: Tab[] = [
-  { id: 'components', label: 'Components', icon: '🧩' },
+  { id: 'components', label: 'UI', icon: '🧩' },
   { id: 'signup', label: 'Sign up', icon: '✨' },
   { id: 'profile', label: 'Profile', icon: '👤' },
   { id: 'booking', label: 'Booking', icon: '📅' },
   { id: 'rhf', label: 'RHF', icon: '📝' },
+  { id: 'overlay', label: 'Overlay', icon: '🪟' },
 ];
 
 interface TabBarProps {

@@ -5,18 +5,20 @@ import { twMerge } from 'tailwind-merge';
 
 import type { TooltipState } from './Tooltip.types';
 
-let _setActive: ((state: TooltipState | null) => void) | null = null;
+type TooltipEntry = { setState: (state: TooltipState | null) => void };
+
+const _tooltipStack: TooltipEntry[] = [];
 let _activeId: number | null = null;
 
 export const showTooltip = (state: TooltipState): void => {
   _activeId = state.id;
-  _setActive?.(state);
+  _tooltipStack[_tooltipStack.length - 1]?.setState(state);
 };
 
 export const hideTooltip = (id?: number): void => {
   if (id !== undefined && _activeId !== id) return;
   _activeId = null;
-  _setActive?.(null);
+  _tooltipStack[_tooltipStack.length - 1]?.setState(null);
 };
 
 export const getActiveTooltipId = (): number | null => _activeId;
@@ -78,9 +80,11 @@ export function TooltipHost(): React.ReactElement | null {
   const [bubbleWidth, setBubbleWidth] = useState<number | null>(null);
 
   useEffect(() => {
-    _setActive = setState;
+    const entry: TooltipEntry = { setState };
+    _tooltipStack.push(entry);
     return () => {
-      _setActive = null;
+      const idx = _tooltipStack.indexOf(entry);
+      if (idx !== -1) _tooltipStack.splice(idx, 1);
     };
   }, []);
 

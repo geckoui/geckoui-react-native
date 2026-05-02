@@ -30,5 +30,18 @@ export const DynamicComponentRenderer = <T extends Record<string, unknown>>({
     );
   }
 
+  if (
+    Array.isArray(component) &&
+    component.every(
+      (item) => typeof item === 'string' || typeof item === 'number',
+    )
+  ) {
+    return (
+      <Text className={className} style={style}>
+        {(component as (string | number)[]).join('')}
+      </Text>
+    );
+  }
+
   return component as ReactNode;
 };

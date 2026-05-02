@@ -1,5 +1,5 @@
 @layer components {
-  .GeckoUIDateRangeInput__dialog {
+  .GeckoUIDateRangeInput__picker {
     @apply p-0;
   }
 

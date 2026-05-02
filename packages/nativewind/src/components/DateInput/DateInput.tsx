@@ -4,15 +4,10 @@ import { Pressable, Text, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
 import { Calendar } from '../Calendar';
-import { Dialog } from '../Dialog';
+import { CalendarPicker } from '../CalendarPicker';
 import { DynamicComponentRenderer } from '../DynamicComponentRenderer/DynamicComponentRenderer';
 import type { DateInputProps } from './DateInput.types';
 import { formatDateForDisplay } from './DateInput.utils';
-
-// Hold the dialog open briefly after selection so the user sees the highlighted
-// cell settle BEFORE the dialog scale-out begins. Without this the close animation
-// starts on the same frame as the selection visual, which feels jarring.
-const COMPLETION_PAUSE_MS = 100;
 
 interface DatePickerProps {
   initialValue?: string | null;
@@ -48,7 +43,7 @@ const DatePicker = ({
         completingRef.current = true;
         timerRef.current = setTimeout(() => {
           onComplete(next);
-        }, COMPLETION_PAUSE_MS);
+        }, 0);
       }}
       disableDate={disableDate}
     />
@@ -68,7 +63,7 @@ export const DateInput = ({
   style,
   placeholderClassName,
   calendarClassName,
-  dialogClassName,
+  pickerClassName,
   prefix,
   suffix,
   disableDate,
@@ -78,8 +73,8 @@ export const DateInput = ({
 
   const openCalendar = () => {
     if (disabled) return;
-    Dialog.show({
-      className: twMerge('GeckoUIDateInput__dialog', dialogClassName),
+    CalendarPicker.show({
+      className: twMerge('GeckoUIDateInput__picker', pickerClassName),
       content: ({ dismiss }) => (
         <DatePicker
           initialValue={value}

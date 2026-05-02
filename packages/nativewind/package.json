@@ -1,6 +1,6 @@
 {
   "name": "@geckoui/nativewind",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GeckoUI component library for React Native + NativeWind",
   "license": "MIT",
   "keywords": [

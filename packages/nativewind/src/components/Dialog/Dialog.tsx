@@ -4,27 +4,30 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, Modal, Pressable, StyleSheet } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 
+import { GeckoUIOverlayHosts } from '../GeckoUIPortal/GeckoUIOverlayHosts';
 import type { DialogOptions, DialogState } from './Dialog.types';
 
-let _setState: ((s: DialogState) => void) | null = null;
-let _animatedDismiss: (() => void) | null = null;
+type HostEntry = {
+  setState: (s: DialogState) => void;
+  animatedDismiss: () => void;
+};
+
+const _hostStack: HostEntry[] = [];
 
 const show = (options: DialogOptions) => {
-  if (!_setState) {
+  const top = _hostStack[_hostStack.length - 1];
+  if (!top) {
     console.warn(
       'DialogHost is not mounted. Add <DialogHost /> to your app root.',
     );
     return;
   }
-  _setState({ visible: true, options });
+  top.setState({ visible: true, options });
 };
 
 const dismiss = () => {
-  if (_animatedDismiss) {
-    _animatedDismiss();
-  } else {
-    _setState?.({ visible: false, options: null });
-  }
+  const top = _hostStack[_hostStack.length - 1];
+  top?.animatedDismiss();
 };
 
 export function DialogHost(): React.ReactElement | null {
@@ -36,26 +39,29 @@ export function DialogHost(): React.ReactElement | null {
   const opacityAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    _setState = setState;
-    _animatedDismiss = () => {
-      Animated.parallel([
-        Animated.timing(scaleAnim, {
-          toValue: 0.95,
-          duration: 150,
-          useNativeDriver: true,
-        }),
-        Animated.timing(opacityAnim, {
-          toValue: 0,
-          duration: 150,
-          useNativeDriver: true,
-        }),
-      ]).start(() => {
-        setState({ visible: false, options: null });
-      });
+    const entry: HostEntry = {
+      setState,
+      animatedDismiss: () => {
+        Animated.parallel([
+          Animated.timing(scaleAnim, {
+            toValue: 0.95,
+            duration: 150,
+            useNativeDriver: true,
+          }),
+          Animated.timing(opacityAnim, {
+            toValue: 0,
+            duration: 150,
+            useNativeDriver: true,
+          }),
+        ]).start(() => {
+          setState({ visible: false, options: null });
+        });
+      },
     };
+    _hostStack.push(entry);
     return () => {
-      _setState = null;
-      _animatedDismiss = null;
+      const idx = _hostStack.indexOf(entry);
+      if (idx !== -1) _hostStack.splice(idx, 1);
     };
   }, [scaleAnim, opacityAnim]);
 
@@ -113,6 +119,7 @@ export function DialogHost(): React.ReactElement | null {
           }
         </Animated.View>
       </Animated.View>
+      <GeckoUIOverlayHosts />
     </Modal>
   );
 }
